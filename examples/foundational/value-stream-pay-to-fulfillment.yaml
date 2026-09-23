@@ -1,70 +1,235 @@
-# Worked Example: Pay-to-Fulfillment Value Stream for OTCHERE Inc
+# Foundational example: OTCHERE Inc Pay-to-Fulfillment
 #
-# Per CR-ES-003 §20 + ADR-ES-003 §22.
-# Demonstrates that Value Stream semantics are independent of a fixed
-# process taxonomy ;;; the progression may begin with a commercial
-# or transactional trigger.
+# Per CR-ES-005 §20 + ADR-ES-005 §15.
+# Illustrates a value stream where agentic participation is distributed
+# across financial and operational stages. Demonstrates that agentic
+# participation is not localised to one stage ;; it can be distributed ;;
+# each stage may have a different realisation mode ;; the value
+# stream remains one end-to-end value realisation construct despite
+# the heterogeneous realisation modes.
+#
+# The example remains technology-neutral. No AI vendor ;; no specific
+# framework ;; no LLM. Per CR-ES-005 §3 + ADR-ES-005 §11.
+#
 # Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
 
-example_entity:
-  id: ES:ENTITY:OTCHERE-INC
-  canonical_name: OTCHERE Inc
-  type: Entity
+id: ES:EXAMPLE:pay-to-fulfillment
+canonical_name: OTCHERE Inc Pay-to-Fulfillment
+status: Candidate
+per_axis_i: foundational
+provenance:
+  - source: CR-ES-005 §20
+    note: Worked example illustrating agentic participation distributed across financial and operational stages.
+  - source: ADR-ES-005 §15
+    note: |
+      Additional illustrative example. The technology-neutral principle
+      is preserved ;; AI is not a semantic requirement ;; mixed
+      realisation is the architectural invariant.
 
-example_value_stream:
-  id: ES:VALUE-STREAM:PAY-TO-FULFILLMENT
-  canonical_name: Pay-to-Fulfillment
-  status: ILLUSTRATIVE ;;; not canonical
-  type: ValueStream
-  definition: |
-    A Value Stream whose progression begins with a commercial or
-    transactional trigger (payment demand) rather than a customer
-    demand. Demonstrates Value Stream semantic independence from
-    process taxonomy.
-  stakeholder:
-    - Payer
-    - OTCHERE Inc
-  initiating_condition:
-    type: Commercial Trigger
-    description: Payment demand initiates the Value Stream.
-  realization_boundary:
+# The scenario
+
+scenario: |
+  OTCHERE Inc operates a Pay-to-Fulfillment value stream. A customer
+  initiates payment ;; OTCHERE routes the payment ;; coordinates
+  fulfillment ;; handles exceptions ;; settles the transaction ;;
+  realises stakeholder value.
+
+  The agentic participation is distributed across both financial and
+  operational stages. Each stage may have a different realisation mode:
+
+  - Payment Interpretation ;; Agentic (context-driven)
+  - Risk / Constraint Assessment ;; Agentic (bounded authority)
+  - Transaction Routing ;; Agentic (decision selection)
+  - Fulfillment Coordination ;; Agentic (cross-stage coordination)
+  - Exception Handling ;; Agentic + Human Escalation
+  - Settlement ;; Automated
+
+# The flow
+
+flow:
+  - step: payment_initiation
     description: |
-      Payer receives the corresponding fulfillment and OTCHERE Inc
-      realizes the commercial value.
-  stages:
-    - ES:VALUE-STAGE:PAY-TO-FULFILLMENT:ESTABLISH-PAYMENT
-    - ES:VALUE-STAGE:PAY-TO-FULFILLMENT:CONFIRM-TRANSACTION
-    - ES:VALUE-STAGE:PAY-TO-FULFILLMENT:AUTHORIZE-FULFILLMENT
-    - ES:VALUE-STAGE:PAY-TO-FULFILLMENT:PREPARE-FULFILLMENT
-    - ES:VALUE-STAGE:PAY-TO-FULFILLMENT:FULFILL-DEMAND
-    - ES:VALUE-STAGE:PAY-TO-FULFILLMENT:CONFIRM-REALIZATION
+      Payment initiation triggers the value stream. Per CR-ES-003 the
+      initiating_condition is preserved.
+    realization_mode: conventional
+    relationships:
+      - subject: ES:CONCEPT:agentic-value-stream
+        predicate: contains
+        object: ES:CONCEPT:value-stage
 
-model: |
-  Payment Demand
-       |
-       v
-  Pay-to-Fulfillment Value Stream
-       |
-       +-- Establish Payment
-       |
-       +-- Confirm Transaction
-       |
-       +-- Authorize Fulfillment
-       |
-       +-- Prepare Fulfillment
-       |
-       +-- Fulfill Demand
-       |
-       +-- Confirm Realization
-       |
-       v
-  Payer Value Realization
-       +
-  Commercial Value Realization (OTCHERE Inc)
+  - step: payment_interpretation
+    description: |
+      An Agent interprets the payment context ;; payment type ;; amount ;;
+      counterparty history ;; regulatory implications. Per ADR-ES-005
+      §4.2 (Contextual Interpretation).
+    realization_mode: agentic
+    agent_anchor:
+      subject: ES:CONCEPT:agent
+      predicate: engages
+      object: ES:CONCEPT:agentic-value-stream
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: interprets
+        object: ES:CONCEPT:intent
 
-note: |
-  This example demonstrates that Value Stream semantics are independent
-  of a fixed process taxonomy. Per CR-ES-003 §20 ;;; the Value Stream
-  represents the value journey, not the execution path. Two Value
-  Streams with different initiating conditions can use overlapping
-  Process, Service, and Capability sets without redefining each other.
+  - step: risk_constraint_assessment
+    description: |
+      An Agent assesses risk and constraints within bounded Authority.
+      Per ADR-ES-005 §4.6 (Bounded Authority). Risk signals from the
+      payment context inform the assessment.
+    realization_mode: agentic
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: acts-within
+        object: ES:CONCEPT:authority
+
+  - step: transaction_routing
+    description: |
+      An Agent selects the transaction routing path. The Agent
+      operates within defined Authority ;; selects from a defined
+      Action set. Per ADR-ES-005 §4.3 (Dynamic Action Selection).
+    realization_mode: agentic
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: selects
+        object: ES:CONCEPT:action
+        qualification: transaction-routing-selection
+
+  - step: fulfillment_coordination
+    description: |
+      An Agent coordinates fulfillment across financial and operational
+      actors. Per ADR-ES-005 §4.4 (Agentic Coordination). The Agent
+      may invoke multiple coordinated actions.
+    realization_mode: agentic
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: coordinates
+        object: ES:CONCEPT:action
+        qualification: cross-stage-coordination
+
+  - step: exception_handling
+    description: |
+      An Agent handles exceptions ;; contextual signals ;; per ADR-ES-005
+      §4.5 (Adaptive Progression). The Agent may adapt the value
+      stream progression to new conditions.
+    realization_mode: agentic
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: adapts-to
+        object: external:concept:context
+
+  - step: human_escalation
+    description: |
+      If Authority is exceeded (e.g., risk threshold) ;; the Agent
+      escalates to a human. Per ADR-ES-005 §4.7 (Intervention).
+    realization_mode: human-in-loop
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: acts-within
+        object: ES:CONCEPT:authority
+        qualification: escalation-when-authority-exceeded
+
+  - step: settlement
+    description: |
+      Settlement is automated. Per CR-ES-005 §11 mixed realisation is
+      explicitly permitted.
+    realization_mode: automated
+
+  - step: stakeholder_value
+    description: |
+      The Agent pursues the Outcome of stakeholder value realisation.
+      Per ADR-ES-005 §4.8 (Outcome Orientation).
+    realization_mode: outcome-oriented
+    relationships:
+      - subject: ES:CONCEPT:agentic-value-stream
+        predicate: realizes
+        object: external:concept:stakeholder-value
+
+# Agentic scope ;; distributed across financial AND operational stages
+
+agentic_scope:
+  - decision: payment-interpretation
+    rationale: |
+      The Agent interprets the payment context (financial stage).
+  - decision: risk-constraint-assessment
+    rationale: |
+      The Agent assesses risk and constraints within bounded
+      Authority (financial stage).
+  - decision: transaction-routing
+    rationale: |
+      The Agent selects the routing path within defined Authority
+      (financial stage).
+  - decision: fulfillment-coordination
+    rationale: |
+      The Agent coordinates fulfillment across financial and
+      operational actors (cross-stage).
+  - decision: exception-handling
+    rationale: |
+      The Agent handles exceptions within bounded Authority
+      (cross-stage).
+
+# Authority and Intent
+
+authority:
+  scope: |
+    The Agent may select transaction routing paths within defined
+    risk criteria ;; may coordinate fulfillment within bounded rules ;;
+    may handle exceptions within escalation thresholds ;; may escalate
+    to humans when Authority is exceeded.
+  bounded_by:
+    - risk-policy
+    - routing-policy
+    - fulfillment-coordination-policy
+    - exception-handling-policy
+    - escalation-criteria
+
+delegated_intent:
+  name: Stakeholder value realisation through payment and fulfillment coordination
+  source: |
+    Delegated by OTCHERE Inc ;; per ADR-ES-005 §4.1 (Delegated Intent).
+
+# Intervention model
+
+intervention_model: human-in-loop ;; with human escalation when Authority is exceeded
+
+# Boundaries demonstrated
+
+boundaries_demonstrated:
+  - human_in_the_loop ;; escalation when Authority exceeded ;; per ADR-ES-005 §4.7
+  - bounded_authority ;; transaction routing bounded by policy ;; per ADR-ES-005 §4.6
+  - outcome_orientation ;; the Agent pursues stakeholder value realisation ;; per ADR-ES-005 §4.8
+  - agentic_not_ai ;; the Agent is not necessarily AI ;; per ADR-ES-005 §11 + AG-INV-001
+  - agentic_not_automation ;; the Agent selects transaction routing paths ;; automation executes predefined logic ;; per ADR-ES-005 §12 + AG-INV-002
+  - agentic_not_autonomous ;; human escalation preserved ;; per ADR-ES-005 §13 + AG-INV-003
+  - mixed_realization ;; conventional + agentic + automated + human-in-loop ;; per CR-ES-005 §11
+  - distributed_agentic_participation ;; agentic participation distributed across financial AND operational stages ;; not localised to one stage
+  - specialized_of_value_stream ;; not a replacement ;; per CR-ES-005 §5 + §8
+  - technology_neutral ;; no specific framework ;; no AI vendor ;; no LLM ;; per ADR-ES-005 §11 + CR-ES-005 §3
+
+# Cardinal rules
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: 0 forbidden glyphs
+  - vendor_specific_embargo: 0 references ;; no vendor-specific material from embargoed sources
+  - naming: OTCHERE Inc preserved (no ACME placeholder)
+  - technology_neutral: no AI vendor ;; no specific framework ;; no LLM ;; per ADR-ES-005 §11 + CR-ES-005 §3
+
+# Cardinal relationships used (subset of the 3 Agentic Value Stream predicates + Agent predicates from CR-ES-004)
+
+cardinal_relationships:
+  - ES:REL:specializes ;; agentic-value-stream -> value-stream
+  - ES:REL:engages ;; agentic-value-stream -> agent
+  - ES:REL:agent-realizes ;; agentic-value-stream -> value-stage
+  - ES:REL:interprets ;; agent -> intent
+  - ES:REL:selects ;; agent -> action
+  - ES:REL:coordinates ;; agent -> action
+  - ES:REL:adapts-to ;; agent -> context
+  - ES:REL:acts-within ;; agent -> authority
+  - ES:REL:realizes ;; agentic-value-stream -> external:concept:stakeholder-value
+  - ES:REL:contains ;; agentic-value-stream -> value-stage
+
+# Governance
+
+governing_adr: ADR-ES-005 §15
+governing_cr: CR-ES-005 §20

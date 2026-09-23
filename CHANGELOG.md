@@ -13,6 +13,20 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - VS-D2 ;;; tests + PlantUML visuals (CR-ES-003 §28-§31).
 - Additional foundational examples ;;; canonical enterprise model, agentic vs autonomous comparative scenario, closed loop feedback.
 
+## [0.4.0] ; 2026-09-23 ; VS-D1b ;; 1 OTCHERE Inc Pay-to-Fulfillment worked example per CR-ES-005 §20 + ADR-ES-005 §15
+
+### Added
+
+- examples/foundational/value-stream-pay-to-fulfillment.yaml ;;; new ;; 9 flow steps ;; 5 agentic scope entries ;; 10 boundaries demonstrated ;; illustrates agentic participation distributed across financial AND operational stages ;; technology-neutral ;; no AI vendor ;; no specific framework ;; no LLM
+
+### Cardinal rules
+
+- Author: Emmanuel A. Otchere on the example file
+- D-004 clean ;; 0 forbidden glyphs
+- No vendor-specific material from embargoed sources
+- OTCHERE Inc naming preserved (no ACME placeholder)
+- Technology-neutral per ADR-ES-005 §11 + CR-ES-005 §3
+
 ## [0.3.0] ; 2026-09-23 ; VS-D1b ;; 1 OTCHERE Inc Agentic Value Stream worked example (Order-to-Cash) per CR-ES-005 §19 + ADR-ES-005 §15
 
 ### Added
