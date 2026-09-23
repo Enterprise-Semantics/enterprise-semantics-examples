@@ -13,6 +13,21 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - VS-D2 ;;; tests + PlantUML visuals (CR-ES-003 §28-§31).
 - Additional foundational examples ;;; canonical enterprise model, agentic vs autonomous comparative scenario, closed loop feedback.
 
+## [0.5.0] ; 2026-09-23 ; VS-D1b ;;; 2 OTCHERE Inc Order Fulfillment worked examples (Workflow + Agentic Workflow) per CR-ES-006 §27 + ADR-ES-006 §21
+
+### Added
+
+- examples/foundational/workflows/order-fulfillment-workflow.yaml ;;; new ;; 6 conventional steps
+- examples/foundational/workflows/order-fulfillment-agentic-workflow.yaml ;;; new ;; 10 agentic steps ;; 8 characteristics ;; 14 boundaries ;; 8 cardinal relationships
+
+### Cardinal rules
+
+- Author: Emmanuel A. Otchere on both files
+- D-004 clean ;;; 0 forbidden glyphs
+- No vendor-specific material from embargoed sources
+- OTCHERE Inc preserved (no ACME placeholder)
+- Technology-neutral per ADR-ES-006 §14 + CR-ES-006 §3
+
 ## [0.4.0] ; 2026-09-23 ; VS-D1b ;; 1 OTCHERE Inc Pay-to-Fulfillment worked example per CR-ES-005 §20 + ADR-ES-005 §15
 
 ### Added

@@ -1,0 +1,161 @@
+# Foundational example: OTCHERE Inc Order Fulfillment (Agentic Workflow)
+#
+# Per CR-ES-006 §27 + ADR-ES-006 §21.
+# Demonstrates the canonical Order Fulfillment process realised through
+# an Agentic Workflow ;; with 9-step agentic flow ;; dynamic
+# interpretation ;; bounded authority ;; and runtime adaptation.
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+id: ES:EXAMPLE:order-fulfillment-agentic-workflow
+canonical_name: OTCHERE Inc Order Fulfillment (Agentic Workflow)
+status: Candidate
+per_axis_i: foundational
+provenance:
+  - source: CR-ES-006 §27
+    note: |
+      Worked example illustrating agentic participation in workflow
+      coordination and execution. Per CR-ES-006 §18 the
+      material-participation criterion is satisfied.
+  - source: ADR-ES-006 §21
+    note: |
+      Foundational example ;;; OTCHERE Inc order fulfillment ;;; the
+      Process remains Fulfill Customer Order ;; the Workflow
+      introduces dynamic interpretation and bounded decision-making
+      into execution.
+
+# The Process (same as the Workflow-only example)
+
+process:
+  id: ES:CONCEPT:process ;;; external concept reference
+  canonical_name: Fulfill Customer Order
+  definition: |
+    The Process of fulfilling a customer order. The Process remains
+    the same ;;; the Agentic Workflow introduces dynamic
+    interpretation and bounded decision-making into execution.
+
+# The Agentic Workflow
+
+agentic_workflow:
+  id: ES:CONCEPT:agentic-workflow
+  description: |
+    Per CR-ES-006 §27 + ADR-ES-006 §21 ;; the Agentic Workflow
+    introduces dynamic interpretation ;; bounded authority ;;;
+    coordination ;;; and runtime adaptation. The Process remains
+    Fulfill Customer Order.
+
+  steps:
+    - step: receive_order
+      description: Receive the customer order.
+    - step: interpret_order_context
+      description: |
+        An Agent interprets the customer and order context ;; per
+        ADR-ES-006 §4.2 (Contextual Interpretation).
+    - step: assess_inventory_customer_delivery_context
+      description: |
+        An Agent assesses inventory ;; customer history ;; and
+        delivery context within bounded Authority ;; per ADR-ES-006
+        §4.6 (Bounded Decision Authority).
+    - step: select_fulfillment_strategy
+      description: |
+        An Agent selects the appropriate fulfillment strategy ;; per
+        ADR-ES-006 §4.3 (Dynamic Routing). The Agent operates within
+        defined Authority ;; selects from a permitted Action set.
+    - step: coordinate_inventory
+      description: |
+        An Agent coordinates inventory across multiple locations ;;
+        per ADR-ES-006 §4.4 (Agentic Coordination).
+    - step: coordinate_logistics
+      description: |
+        An Agent coordinates logistics across carriers ;; per
+        ADR-ES-006 §4.4 (Agentic Coordination).
+    - step: monitor_outcome
+      description: |
+        An Agent monitors execution outcomes and adapts the workflow
+        if exceptions arise ;; per ADR-ES-006 §4.5 (Adaptive
+        Execution) + §4.7 (Exception Interpretation).
+    - step: adapt_to_exception
+      description: |
+        If an exception is detected (e.g. inventory shortfall) ;; the
+        Agent selects an alternative fulfillment path within
+        Authority ;; per CR-ES-006 §15 + ADR-ES-006 §12 (Adaptation
+        Boundary).
+    - step: escalate_if_authority_exceeded
+      description: |
+        If the Agent's Authority is exceeded (e.g. exception beyond
+        permitted action set) ;; the workflow escalates to a human
+        for approval ;; per CR-ES-006 §17 + ADR-ES-006 §4.7 (Human
+        Intervention).
+    - step: confirm_delivery
+      description: |
+        The Agent confirms delivery has occurred ;; per ADR-ES-006
+        §21 ;; producing the workflow outcome.
+
+# Workflow intent
+
+workflow_intent: Fulfill customer order successfully through agentic interpretation ;;; action selection ;; coordination ;;; and adaptation within bounded authority.
+
+# Authority
+
+authority:
+  scope: |
+    The Agent may select fulfillment strategies within defined
+    policies ;; may coordinate inventory and logistics within bounded
+    rules ;; may adapt to exceptions within escalation thresholds ;; may
+    escalate to humans when Authority is exceeded.
+  bounded_by:
+    - fulfillment-policy
+    - inventory-allocation-rules
+    - logistics-coordination-policy
+    - exception-handling-policy
+    - escalation-criteria
+
+# Intervention model
+
+intervention_model: human-in-loop ;; with human escalation when Authority is exceeded
+
+# Boundaries demonstrated
+
+boundaries_demonstrated:
+  - workflow_intent ;; per ADR-ES-006 §4.1
+  - contextual_interpretation ;; per ADR-ES-006 §4.2
+  - dynamic_routing ;; per ADR-ES-006 §4.3
+  - agentic_coordination ;; per ADR-ES-006 §4.4
+  - adaptive_execution ;; per ADR-ES-006 §4.5
+  - bounded_decision_authority ;; per ADR-ES-006 §4.6
+  - exception_interpretation ;; per ADR-ES-006 §4.7
+  - human_intervention ;; per ADR-ES-006 §4.8
+  - agentic_not_ai ;; the Agent is not necessarily AI ;; per ADR-ES-006 §14
+  - agentic_not_automation ;; per ADR-ES-006 §13
+  - agentic_not_autonomous ;; human escalation preserved ;; per ADR-ES-006 §17
+  - not_a_process ;; the Agentic Workflow realises the Process ;; but is not the Process itself ;; per ADR-ES-006 §6 + §24.4
+  - not_a_value_stream ;; the Agentic Workflow is the execution layer ;;; not the value-realisation layer ;; per ADR-ES-006 §15 + §24.6
+  - not_an_agent ;; the Agentic Workflow coordinates Agents ;; but is itself the coordination structure ;; per AWF-CON-013
+  - technology_neutral ;; no AI vendor ;; no specific framework ;; no LLM ;; per ADR-ES-006 §14
+
+# Cardinal rules
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: 0 forbidden glyphs
+  - vendor_specific_embargo: 0 references ;; no vendor-specific material from embargoed sources
+  - naming: OTCHERE Inc preserved (no ACME placeholder)
+  - technology_neutral: no AI vendor ;; no specific framework ;; no LLM
+
+# Cardinal relationships used (subset of the 7 Agentic Workflow predicates + 1 inverse)
+
+cardinal_relationships:
+  - ES:REL:specializes ;; agentic-workflow -> workflow
+  - ES:REL:engages ;; agentic-workflow -> agent
+  - ES:REL:interprets ;; agentic-workflow -> intent
+  - ES:REL:operates-within ;; agentic-workflow -> authority
+  - ES:REL:coordinates ;; agentic-workflow -> activity
+  - ES:REL:coordinates ;; agentic-workflow -> task
+  - ES:REL:produces ;; agentic-workflow -> outcome
+  - ES:REL:process-realized-through ;; external:concept:process -> agentic-workflow
+
+# Governance
+
+governing_adr: ADR-ES-006 §21
+governing_cr: CR-ES-006 §27
+related_example: order-fulfillment-workflow.yaml
