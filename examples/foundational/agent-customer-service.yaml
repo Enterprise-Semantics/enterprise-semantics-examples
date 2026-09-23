@@ -1,0 +1,162 @@
+# Foundational example: OTCHERE Inc Customer Service Agent
+#
+# Per CR-ES-004 §24 + ADR-ES-004 §16.
+# Illustrates the 6 Agentic characteristics in a concrete enterprise scenario:
+#   - delegated intent (Customer Service Intent)
+#   - contextual interpretation (customer context)
+#   - action selection (response action within bounded authority)
+#   - bounded authority (defined scope for the Customer Service Agent)
+#   - outcome orientation (Customer Outcome: resolution)
+#   - adaptation (response may adapt to customer signals)
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+#
+# This example demonstrates that:
+#   - the Agent has delegated intent
+#   - authority is bounded
+#   - actions are selected
+#   - outcome is pursued
+#   - human escalation remains possible
+
+id: ES:EXAMPLE:customer-service-agent
+canonical_name: OTCHERE Inc Customer Service Agent
+status: Candidate
+per_axis_i: foundational
+provenance:
+  - source: CR-ES-004 §24
+    note: Worked example demonstrating the 6 Agentic characteristics + 11 predicates.
+  - source: ADR-ES-004 §16
+    note: Establishes the human-in-the-loop pattern ;;; human escalation remains possible.
+
+# The scenario
+
+scenario: |
+  OTCHERE Inc operates a Customer Service function. A customer contacts
+  OTCHERE with a service request (e.g., billing dispute, account
+  modification, product inquiry). A Customer Service Agent is delegated
+  the Intent of resolving the customer's concern.
+
+  The Agent operates within bounded Authority (defined scope for
+  customer service interactions) and may select Actions from a
+  defined set (e.g., refund up to $50, modify account name, escalate
+  to human). The Agent interprets the customer's context (message
+  tone, prior interactions, account status) and selects an appropriate
+  Action to pursue the resolution Outcome.
+
+  Human escalation is always available ;;; the Agent may request human
+  intervention when the situation exceeds bounded Authority.
+
+# The flow
+
+flow:
+  - step: delegation
+    description: |
+      OTCHERE Inc delegates the Intent of resolving customer concerns
+      to the Customer Service Agent.
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: receives
+        object: ES:CONCEPT:intent
+
+  - step: bounded_authority
+    description: |
+      The Agent operates within bounded Authority ;;; the scope of
+      permitted Actions is defined in advance (refunds up to $50,
+      account modifications within policy, escalation to human on
+      policy exceptions).
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: acts-within
+        object: ES:CONCEPT:authority
+
+  - step: interpretation
+    description: |
+      The Agent interprets the customer's Context ;;; message tone,
+      prior interactions, account status, urgency.
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: interprets
+        object: ES:CONCEPT:intent
+
+  - step: selection
+    description: |
+      The Agent selects a response Action within bounded Authority.
+      Selection is among the defined set ;;; not a free-form generation.
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: selects
+        object: ES:CONCEPT:action
+
+  - step: coordination
+    description: |
+      The Agent may coordinate multiple Actions (e.g., acknowledge +
+      refund + send confirmation).
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: coordinates
+        object: ES:CONCEPT:action
+
+  - step: outcome
+    description: |
+      The Agent pursues the Outcome of resolution (not merely completion
+      of a fixed instruction). The Outcome is the external instance.
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: agent-produces
+        object: external:concept:outcome
+
+  - step: adaptation
+    description: |
+      The Agent may adapt to Context ;;; if the customer expresses
+      frustration, the Agent may escalate tone (more empathic language)
+      or trigger escalation.
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: adapts-to
+        object: external:concept:context
+
+# The boundaries
+
+boundaries_demonstrated:
+  - human_escalation ;;; the Agent can escalate to a human agent when bounded Authority is exceeded ;;; per ADR-ES-004 §16
+  - bounded_authority ;;; refunds capped at $50 ;;; policy exceptions trigger escalation ;;; per ADR-ES-004 §15
+  - outcome_orientation ;;; the Agent pursues resolution, not mere completion ;;; per ADR-ES-004 §7.5
+  - distinction_from_automation ;;; the Agent interprets Context and selects Actions ;;; conventional automation would execute predefined rules without contextual interpretation ;;; per ADR-ES-004 §8
+  - distinction_from_ai_agent ;;; the Agent may use AI for natural language understanding ;;; but AI != Agent ;;; the Agent may be implemented with or without AI ;;; per ADR-ES-004 §10
+  - distinction_from_autonomy ;;; the Agent operates within bounded Authority and may escalate ;;; per ADR-ES-004 §9 ;;; the Agent is NOT Autonomous (Autonomous = self-direction without external oversight ;;; not this)
+
+# The 6 Agentic characteristics ;;; all 6 must be present for a construct to be considered Agentic per ADR-ES-004 §4.1
+
+characteristics_demonstrated:
+  - delegated_intent ;;; the Agent is delegated the Intent of resolving customer concerns
+  - contextual_interpretation ;;; the Agent interprets customer Context (tone, prior interactions, account status)
+  - action_selection ;;; the Agent selects a response Action from a defined set
+  - bounded_authority ;;; the Agent operates within defined Authority scope
+  - outcome_orientation ;;; the Agent pursues resolution Outcome (not mere completion)
+  - adaptation ;;; the Agent may adapt to customer signals (frustration ;;; escalation)
+
+# Relationships used (8 of the 11 CR-ES-004 §10 predicates)
+
+relationships_used:
+  - agent-receives-intent ;;; step delegation
+  - agent-acts-within-authority ;;; step bounded_authority
+  - agent-interprets-intent ;;; step interpretation
+  - agent-selects-action ;;; step selection
+  - agent-coordinates-action ;;; step coordination
+  - agent-agent-produces-outcome ;;; step outcome
+  - agent-adapts-to-context ;;; step adaptation
+  - authority-constrains-action ;;; implied ;;; the Action is constrained by Authority scope
+
+# Governance
+
+governing_adr: ADR-ES-004 §16
+governing_cr: CR-ES-004 §24
+
+# Cardinal rules
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: 0 forbidden glyphs
+  - vendor_specific_embargo: 0 references
+  - naming: OTCHERE Inc preserved (no ACME placeholder)
+  - otchere_inc_scenario: Customer Service Agent ;;; illustrates 6/6 Agentic characteristics

@@ -13,6 +13,19 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - VS-D2 ;;; tests + PlantUML visuals (CR-ES-003 §28-§31).
 - Additional foundational examples ;;; canonical enterprise model, agentic vs autonomous comparative scenario, closed loop feedback.
 
+## [0.2.0] ; 2026-09-23 ; CR-ES-004 VS-D1b Agentic worked example
+
+### Added
+
+- examples/foundational/agent-customer-service.yaml ;;; OTCHERE Inc Customer Service Agent ;;; 7 flow steps ;;; demonstrates all 6 Agentic characteristics ;;; 8 of 11 CR-ES-004 §10 predicates used ;;; human escalation preserved per ADR-ES-004 §16
+
+### Cardinal rules
+
+- Author: Emmanuel A. Otchere on the example file
+- D-004 clean ;;; 0 forbidden glyphs
+- No vendor-specific material from embargoed sources
+- OTCHERE Inc naming preserved (no ACME placeholder)
+
 ## [0.1.0] ; 2026-09-23 ; VS-D1b Value Stream example tranche
 
 ### Added
