@@ -1,0 +1,150 @@
+# Foundational example: OTCHERE Inc Fulfillment Operations (Agentic Operations)
+#
+# Per CR-ES-007 §21 + ADR-ES-007 §25.
+# Demonstrates the canonical Agentic Operations operating mode ;; with
+# 10-step agentic operational loop ;; 5 operational sensing elements ;;
+# multiple workflows (some Agentic ;; some conventional) ;; bounded
+# authority ;; and policy governance.
+#
+# The example remains technology-neutral. No AI vendor ;; no specific
+# framework ;; no LLM. Per CR-ES-007 §3 + ADR-ES-007 §14.
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+id: ES:EXAMPLE:otchere-agentic-operations
+canonical_name: OTCHERE Inc Fulfillment Operations (Agentic Operations)
+status: Candidate
+per_axis_i: foundational
+provenance:
+  - source: CR-ES-007 §21
+    note: Worked example illustrating Agentic Operations operating mode.
+  - source: ADR-ES-007 §25
+    note: |
+      Foundational example ;; OTCHERE Inc Fulfillment Operations ;;
+      10-step operational loop ;; multiple workflows participating ;;
+      bounded authority ;; policy governance.
+
+# OTCHERE Inc operational context
+
+operational_context:
+  description: |
+    The OTCHERE Inc fulfillment operation monitors ;; interprets ;; and
+    responds to operational conditions across multiple operational
+    concerns.
+  elements:
+    - order_demand
+    - inventory_conditions
+    - logistics_status
+    - customer_conditions
+    - operational_constraints
+
+# The Agentic Operations semantic
+
+agentic_operations:
+  id: ES:CONCEPT:agentic-operations
+  description: |
+    Per CR-ES-007 §21 + ADR-ES-007 §25 ;; the Agentic Operations
+    operating mode that coordinates the OTCHERE Inc fulfillment
+    operation. The Operation is materially agentic ;; with agentic
+    behavior participating across operational sensing ;; interpretation
+    ;;; decision ;;; coordination ;;; and adaptation.
+
+# The 10-step operational loop
+
+operational_loop:
+  - step: sense
+    description: |
+      The Agent senses operational conditions ;; order demand ;;;
+      inventory levels ;; logistics status ;; customer conditions ;;
+      and operational constraints.
+  - step: interpret
+    description: |
+      The Agent interprets the operational context ;;; identifying
+      demand patterns ;; capacity constraints ;; and exception
+      indicators.
+  - step: assess
+    description: |
+      The Agent assesses operational constraints ;; policy ;; and
+      authority boundaries.
+  - step: decide
+    description: |
+      The Agent selects the operational response within bounded
+      authority ;;; per ADR-ES-007 §4.6.
+  - step: coordinate
+    description: |
+      The Agent coordinates operational activities ;;; processes ;;;
+      workflows ;;; per ADR-ES-007 §4.4.
+  - step: act
+    description: |
+      The Agent initiates or executes the selected action ;; per
+      ADR-ES-007 §4.5.
+  - step: observe
+    description: |
+      The Agent observes the operational outcome ;;; per ADR-ES-007 §4.6.
+  - step: respond_to_exceptions
+    description: |
+      The Agent responds to exceptions within bounded authority ;;
+      adapting the operational response as needed.
+  - step: escalate
+    description: |
+      If operational decisions exceed bounded authority ;;; the Agent
+      escalates to a human for approval ;;; per ADR-ES-007 §4.7.
+  - step: evaluate
+    description: |
+      The Agent evaluates the operational outcome ;;; informing
+      subsequent operational decisions ;;; per ADR-ES-007 §4.6.
+
+# Workflows participating in the Operation
+
+participating_workflows:
+  - workflow: order_fulfillment_workflow
+    description: Order Fulfillment Workflow ;;; may be Agentic Workflow
+    type: workflow ;;; external concept reference
+  - workflow: inventory_replenishment_workflow
+    description: Inventory Replenishment Workflow ;; conventional
+    type: workflow ;;; external concept reference
+  - workflow: delivery_exception_workflow
+    description: Delivery Exception Workflow ;; may be Agentic Workflow
+    type: workflow ;;; external concept reference
+  - workflow: customer_escalation_workflow
+    description: Customer Escalation Workflow ;; conventional
+    type: workflow ;;; external concept reference
+
+# Boundaries demonstrated
+
+boundaries_demonstrated:
+  - agentic_not_ai ;; the Agent is not necessarily AI ;; per ADR-ES-007 §14
+  - agentic_not_automation ;; per ADR-ES-007 §13
+  - agentic_not_autonomous ;; human escalation preserved ;; per ADR-ES-007 §15
+  - not_a_workflow ;; Agentic Operations is an operating mode ;;; not a workflow ;; per ADR-ES-007 §7
+  - not_a_value_stream ;; per ADR-ES-007 §8
+  - not_a_process ;; per ADR-ES-007 §10
+  - multiple_workflow_participation ;; per ADR-ES-007 §21 + §25
+  - technology_neutral ;; no AI vendor ;; no specific framework ;; no LLM ;; per ADR-ES-007 §14
+
+# Cardinal rules
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: 0 forbidden glyphs
+  - vendor_specific_embargo: 0 references ;; no vendor-specific material from embargoed sources
+  - naming: OTCHERE Inc preserved (no ACME placeholder)
+  - technology_neutral: no AI vendor ;; no specific framework ;; no LLM ;; per ADR-ES-007 §14 + CR-ES-007 §3
+
+# Cardinal relationships used (subset of the 9 Agentic Operations predicates + Agent + Agentic Workflow predicates)
+
+cardinal_relationships:
+  - ES:REL:specializes ;; agentic-operations -> operations
+  - ES:REL:engages ;; agentic-operations -> agent
+  - ES:REL:responds-to ;; agentic-operations -> operational-context
+  - ES:REL:operates-within ;; agentic-operations -> authority
+  - ES:REL:governed-by ;; agentic-operations -> policy
+  - ES:REL:coordinates ;; agentic-operations -> process
+  - ES:REL:uses ;; agentic-operations -> agentic-workflow
+  - ES:REL:produces ;; agentic-operations -> operational-outcome
+  - ES:REL:adapts-to ;; agentic-operations -> operational-context
+
+# Governance
+
+governing_adr: ADR-ES-007 §25
+governing_cr: CR-ES-007 §21
