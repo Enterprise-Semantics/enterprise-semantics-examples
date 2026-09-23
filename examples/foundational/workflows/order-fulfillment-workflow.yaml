@@ -1,0 +1,88 @@
+# Foundational example: OTCHERE Inc Order Fulfillment (Workflow + Agentic Workflow)
+#
+# Per CR-ES-006 §27 + ADR-ES-006 §21.
+# Demonstrates the canonical Order Fulfillment process with two
+# workflow variants: a conventional Workflow and an Agentic Workflow.
+# The architectural distinction: the Process remains the same ;; the
+# Workflow becomes capable of agentic interpretation ;;; action/path
+# selection ;; and runtime adaptation.
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+id: ES:EXAMPLE:order-fulfillment-workflow
+canonical_name: OTCHERE Inc Order Fulfillment (Workflow)
+status: Candidate
+per_axis_i: foundational
+provenance:
+  - source: CR-ES-006 §27
+    note: Worked example illustrating conventional Workflow execution.
+  - source: ADR-ES-006 §21
+    note: |
+      Foundational example ;; OTCHERE Inc order fulfillment ;;
+      Process remains the same ;; Workflow executes via predefined
+      sequence.
+
+# The Process
+
+process:
+  id: ES:CONCEPT:process ;;; external concept reference
+  canonical_name: Fulfill Customer Order
+  definition: |
+    The Process of fulfilling a customer order ;; from order receipt
+    to delivery confirmation. The Process remains the same whether
+    realised through a conventional Workflow or an Agentic Workflow.
+
+# The conventional Workflow
+
+conventional_workflow:
+  id: external:concept:workflow
+  description: |
+    Per CR-ES-006 §27 + ADR-ES-006 §21 ;; the conventional Workflow
+    sequences activities through predefined steps ;; no agentic
+    interpretation ;; no dynamic action selection.
+
+  steps:
+    - step: receive_order
+      description: Receive the customer order.
+    - step: check_inventory
+      description: Check inventory availability for ordered items.
+    - step: reserve_inventory
+      description: Reserve the available inventory.
+    - step: schedule_delivery
+      description: Schedule delivery based on standard rules.
+    - step: dispatch
+      description: Dispatch the order for delivery.
+    - step: confirm_delivery
+      description: Confirm delivery has occurred.
+
+# Realisation
+
+realisation:
+  process_realises_through_workflow: true
+  process_realises_through_agentic_workflow: true
+  notes: |
+    The same Process may be realised through either a conventional
+    Workflow or an Agentic Workflow ;; per CR-ES-006 §9 + ADR-ES-006 §6.
+
+# Cardinal rules
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: 0 forbidden glyphs
+  - vendor_specific_embargo: 0 references ;; no vendor-specific material from embargoed sources
+  - naming: OTCHERE Inc preserved (no ACME placeholder)
+  - technology_neutral: no AI vendor ;; no specific framework ;; no LLM
+
+# Cardinal relationships used
+
+cardinal_relationships:
+  - external:concept:process -> ES:CONCEPT:workflow ;; realized-through
+  - external:concept:process -> ES:CONCEPT:agentic-workflow ;; realized-through (alternate realisation)
+  - Process != Agentic Workflow ;;; per AVS-INV-AWF-001
+  - Process != Value Stream ;;; per AVS-INV-AWF-003
+
+# Governance
+
+governing_adr: ADR-ES-006 §21
+governing_cr: CR-ES-006 §27
+related_example: order-fulfillment-agentic-workflow.yaml
