@@ -1,0 +1,78 @@
+# Worked Example: Value Stream vs Process Boundary
+#
+# Per CR-ES-003 §32 + ADR-ES-003 §8 + §16.
+# Demonstrates the critical architectural distinction ;;; same value
+# journey can be realized through different execution models without
+# changing the Value Stream identity.
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+example_entity:
+  id: ES:ENTITY:OTCHERE-INC
+  canonical_name: OTCHERE Inc
+  type: Entity
+
+example_value_stream:
+  id: ES:VALUE-STREAM:ORDER-TO-CASH:COMPARATIVE
+  canonical_name: Order-to-Cash Value Stream (comparative execution)
+  status: ILLUSTRATIVE
+  type: ValueStream
+  definition: |
+    The Order-to-Cash Value Stream remains stable while its execution
+    model evolves. Three execution models (human-led, automated,
+    agentic) realise the SAME Value Stream identity.
+  stakeholder:
+    - Customer
+    - OTCHERE Inc
+  initiating_condition:
+    type: Demand
+    description: Customer requires an offering.
+  realization_boundary:
+    description: |
+      Customer receives the intended offering and OTCHERE Inc realizes
+      the corresponding commercial value.
+
+execution_models:
+  human_led:
+    description: |
+      Traditional execution model ;;; customer orders are captured by
+      humans, fulfilment is coordinated by humans, payment is processed
+      by humans.
+    realises_via:
+      - Human Sales Process
+      - Human Fulfilment Process
+      - Human Payment Process
+
+  automated:
+    description: |
+      Modern execution model ;;; digital channels handle capture and
+      confirmation, automated systems handle fulfilment and payment.
+    realises_via:
+      - Digital Ordering Service
+      - Automated Fulfilment System
+      - Automated Payment Service
+
+  agentic:
+    description: |
+      Future execution model ;;; AI Agents handle customer interaction,
+      fulfilment coordination, and payment processing under bounded
+      autonomy with human governance.
+    realises_via:
+      - Customer Interaction AI Agent
+      - Fulfilment Coordination AI Agent
+      - Payment Processing AI Agent
+
+model: |
+  Same Value Stream (Order-to-Cash)
+  Three execution models:
+    - Human-led execution (human processes)
+    - Automated execution (digital services + systems)
+    - Agentic execution (AI Agents under bounded autonomy)
+  All three converge on the same value realization.
+
+architectural_payoff: |
+  The Value Stream remains the semantic reference point while its
+  execution model evolves. This is the deliberate prerequisite for
+  future Agentic Value Stream semantics (per ADR-ES-003 §23 + §24).
+  The architectural payoff is that an enterprise can compare
+  different execution models of the same value journey without
+  redefining the Value Stream itself.

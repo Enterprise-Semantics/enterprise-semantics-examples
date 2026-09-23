@@ -6,7 +6,7 @@ This repository holds **worked examples** that double as **provenance evidence**
 
 ## Status
 
-**Skeleton (v0.0.1).** The first canonical example lands in Phase 4.
+**First example tranche (v0.1.0).** Value Stream examples landed via VS-D1b on 2026-09-23 (3 example YAMLs in examples/foundational/: value-stream-order-to-cash.yaml, value-stream-pay-to-fulfillment.yaml, value-stream-process-boundary.yaml).
 
 ## Planned examples
 
