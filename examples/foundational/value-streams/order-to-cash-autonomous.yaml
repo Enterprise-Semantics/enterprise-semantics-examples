@@ -1,0 +1,265 @@
+# Foundational example: OTCHERE Inc Order-to-Cash Autonomous Value Stream
+#
+# Per CR-ES-009 §24 + ADR-ES-009 §23.
+# Demonstrates the canonical Autonomous Value Stream ;; with 7 stages ;;
+# distributed autonomy (some stages autonomous ;; some conventional) ;;
+# 6 stakeholder ;; initiating_condition ;; value_proposition ;; autonomous
+# decision/action scopes ;; bounded authority ;; policy/constraint ;;
+# escalation boundary.
+#
+# The example remains technology-neutral. No AI vendor ;; no specific
+# framework ;; no LLM. Per CR-ES-009 §3 + ADR-ES-009 §16.
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+id: ES:EXAMPLE:otchere-order-to-cash-autonomous-value-stream
+canonical_name: OTCHERE Inc Order-to-Cash Autonomous Value Stream
+status: Candidate
+per_axis_i: foundational
+provenance:
+  - source: CR-ES-009 §24
+    note: Worked example illustrating Autonomous Value Stream at the value-realization boundary.
+  - source: ADR-ES-009 §23
+    note: |
+      Foundational example ;; OTCHERE Inc Order-to-Cash Autonomous
+      Value Stream ;; 7 stages with distributed autonomy.
+
+# Stakeholder anchor
+
+stakeholder_anchor: |
+  Per ADR-ES-009 §13 + AVS-AUTO-INV-002 ;;; the Autonomous Value
+  Stream retains stakeholder-value orientation. The customer is the
+  defining stakeholder for OTCHERE Inc Order-to-Cash operations.
+
+# Initiating condition
+
+initiating_condition: |
+  Customer Need ;; an OTCHERE Inc customer expresses a need or
+  order ;; per ADR-ES-009 §4 + AVS-AUTO-CON-003.
+
+# Value proposition
+
+value_proposition: |
+  OTCHERE Inc fulfils customer orders through efficient ;; reliable ;;
+  autonomous value-realization ;; delivering product to customer.
+
+# Realization boundary
+
+realization_boundary: |
+  Per ADR-ES-009 §4 + AVS-AUTO-CON-004 ;;; the realization boundary
+  spans from Customer Need through Stakeholder Outcome. The boundary
+  includes all 7 stages of the OTCHERE Inc Order-to-Cash value
+  stream.
+
+# Value Objective
+
+value_objective: |
+  Per ADR-ES-009 §12 + CR-ES-009 §6 ;; Autonomous Value Stream pursues
+  a Value Objective of fulfilling OTCHERE Inc customer orders while
+  maintaining inventory policy constraints and minimising cost.
+
+# The Autonomous Value Stream semantic
+
+autonomous_value_stream:
+  id: ES:CONCEPT:autonomous-value-stream
+  description: |
+    Per CR-ES-009 §24 + ADR-ES-009 §23 ;;; the Autonomous Value
+    Stream that performs OTCHERE Inc customer-order value-realization
+    decisions and actions independently within defined authority ;;;
+    policy ;; and constraints.
+
+# Bounded authority
+
+authority_context:
+  description: |
+    Per ADR-ES-009 §12 ;;; autonomous value-realization decisions
+    occur within explicit authority.
+  delegation: customer_authorities_delegate_to_autonomous_value_stream
+
+# Policy + constraint
+
+policy_context:
+  description: |
+    Per ADR-ES-009 §12 ;;; autonomous behavior is bounded by
+    applicable policies + constraints.
+  policies:
+    - inventory_threshold_policy ;; replenish when stock < safety_level
+    - logistics_routing_policy ;; prefer existing routes ;; escalate new routes
+    - customer_satisfaction_constraint ;; no customer-visible cost increase
+    - settlement_policy ;; settlement within regulatory + contractual bounds
+
+# Autonomy scope
+
+autonomy_scope:
+  stage_progression: true
+  decision: order_routing
+  coordination: fulfillment_logistics
+  action: inventory_reallocation
+  adaptation: delivery_disruption
+  exception_handling: bounded
+
+# Decision + action scopes
+
+decision_scope:
+  - order_routing_decision_within_approved_set
+  - inventory_replenishment_decision_within_threshold
+  - settlement_validation_decision_within_policy
+
+action_scope:
+  - inventory_movement_within_threshold
+  - logistics_dispatch_within_approved_routes
+  - customer_notification_for_routing_change
+
+adaptation_scope:
+  - delivery_disruption_response
+  - inventory_reallocation_strategy
+  - settlement_workflow_substitution
+
+# The 7-stage value stream (distributed autonomy)
+
+value_stages:
+  - stage: 1
+    name: order
+    autonomy_mode: conventional
+    description: |
+      Customer places order ;; conventional (not autonomous). Per
+      ADR-ES-009 §7 ;; not every stage must be autonomous.
+
+  - stage: 2
+    name: order_validation
+    autonomy_mode: autonomous
+    description: |
+      Autonomous order validation ;; credit check ;; inventory check ;;
+      delivery feasibility ;; per AVS-AUTO-CON-007 (decision
+      independence).
+
+  - stage: 3
+    name: fulfillment
+    autonomy_mode: autonomous
+    description: |
+      Autonomous fulfillment ;; inventory allocation ;; logistics
+      coordination ;; per AVS-AUTO-CON-008 (action independence).
+
+  - stage: 4
+    name: delivery
+    autonomy_mode: autonomous
+    description: |
+      Autonomous delivery ;; logistics dispatch within approved
+      routes ;; per AVS-AUTO-CON-008 + AVS-AUTO-CON-011 (adaptation).
+
+  - stage: 5
+    name: delivery_confirmation
+    autonomy_mode: conventional
+    description: |
+      Conventional delivery confirmation ;; customer-facing. Per
+      ADR-ES-009 §7 + AVS-AUTO-INV-004 (not every stage autonomous).
+
+  - stage: 6
+    name: settlement
+    autonomy_mode: autonomous
+    description: |
+      Autonomous settlement ;; invoice generation ;; payment
+      processing within policy. Per AVS-AUTO-CON-007 + AVS-AUTO-CON-008.
+
+  - stage: 7
+    name: customer_outcome
+    autonomy_mode: human_approval
+    description: |
+      Human approval stage for outcome verification. Per
+      ADR-ES-009 §7 + AVS-AUTO-CON-012 (human compatibility).
+
+# Human governance
+
+intervention_model:
+  - human-governance
+  - human-policy-definition
+  - human-exception-approval
+  - human-intervention
+  - human-escalation
+  - human-value-decision
+
+# Escalation boundary
+
+escalation_boundary:
+  - authority_exceeded
+  - policy_conflict
+  - insufficient_information
+  - unsafe_action
+  - unresolved_exception
+  - new_routing_required
+  - policy_amendment_needed
+  - customer_outcome_failure
+
+# Realization mode
+
+realization_mode: distributed-autonomous
+
+# Stakeholder outcome
+
+stakeholder_outcome: |
+  Per ADR-ES-009 §13 + AVS-AUTO-CON-002 ;;; the Autonomous Value
+  Stream produces Stakeholder Outcome ;; the customer receives the
+  product ;; the order is fulfilled ;; stakeholder value is
+  realised.
+
+# Illustrative autonomous value-realization scenario
+
+illustrative_scenario:
+  name: order-condition-interpreted-autonomous-response
+  steps:
+    - order_condition_interpreted
+    - fulfillment_route_selected
+    - inventory_allocation_determined
+    - logistics_coordination_initiated
+    - delivery_condition_observed
+    - exception_response_selected
+    - value_realization_adapted
+  description: |
+    Per CR-ES-009 §24 + ADR-ES-009 §23 ;;; a representative scenario
+    demonstrating autonomous decision and action within bounded
+    authority at the value-realization boundary.
+
+# Boundaries demonstrated
+
+boundaries_demonstrated:
+  - autonomous_value_stream_not_ai ;; the Autonomous Value Stream is not necessarily AI ;; per ADR-ES-009 §16
+  - autonomous_value_stream_not_automation ;; per ADR-ES-009 §16 + CR-ES-009 §17
+  - autonomous_value_stream_not_agentic ;; orthogonality preserved ;; per ADR-ES-009 §3 + §10
+  - autonomous_value_stream_not_unattended ;; human governance preserved ;; per ADR-ES-009 §17
+  - autonomous_value_stream_not_human_free ;; human intervention preserved ;; per ADR-ES-009 §17
+  - autonomous_value_stream_not_unlimited ;; bounded by authority ;; per ADR-ES-009 §12
+  - distributed_autonomy ;; not every stage must be autonomous ;; per ADR-ES-009 §7 + AVS-AUTO-INV-004
+  - no_autonomous_value_stage ;; per ADR-ES-009 §11 + §20 + AVS-AUTO-INV-005
+  - stakeholder_anchor_preserved ;; per ADR-ES-009 §13 + AVS-AUTO-INV-002
+  - escalation_boundary_present ;; per ADR-ES-009 §12 + §16
+  - technology_neutral ;; no AI vendor ;; no specific framework ;; no LLM ;; per ADR-ES-009 §16
+
+# Cardinal rules
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: 0 forbidden glyphs
+  - vendor_specific_embargo: 0 references ;; no vendor-specific material from embargoed sources
+  - naming: OTCHERE Inc preserved (no ACME placeholder)
+  - technology_neutral: no AI vendor ;; no specific framework ;; no LLM ;; per ADR-ES-009 §16 + CR-ES-009 §3
+
+# Cardinal relationships used (subset of the 12 Autonomous Value Stream predicates)
+
+cardinal_relationships:
+  - ES:REL:specializes ;; autonomous-value-stream -> value-stream
+  - ES:REL:realizes ;; autonomous-value-stream -> stakeholder-value
+  - ES:REL:contains ;; autonomous-value-stream -> value-stage
+  - ES:REL:operates-within ;; autonomous-value-stream -> authority
+  - ES:REL:governed-by ;; autonomous-value-stream -> policy
+  - ES:REL:pursues ;; autonomous-value-stream -> value-objective
+  - ES:REL:produces ;; autonomous-value-stream -> stakeholder-outcome
+  - ES:REL:adapts-to ;; autonomous-value-stream -> value-context
+  - ES:REL:uses ;; autonomous-value-stream -> autonomous-operations
+  - ES:REL:uses ;; autonomous-value-stream -> agentic-operations
+  - ES:REL:uses ;; autonomous-value-stream -> workflow
+  - ES:REL:uses ;; autonomous-value-stream -> agentic-workflow
+
+# Governance
+
+governing_adr: ADR-ES-009 §23
+governing_cr: CR-ES-009 §24
