@@ -1,0 +1,71 @@
+# Worked Example: Order-to-Cash Value Stream for OTCHERE Inc
+#
+# Per CR-ES-003 §18 + ADR-ES-003 §22.
+# Illustrative Value Stream ;;; not a canonical catalog entry.
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+example_entity:
+  id: ES:ENTITY:OTCHERE-INC
+  canonical_name: OTCHERE Inc
+  type: Entity
+  description: |
+    OTCHERE Inc is a holding entity used as the canonical example
+    organisation in Enterprise-Semantics.
+
+example_value_stream:
+  id: ES:VALUE-STREAM:ORDER-TO-CASH
+  canonical_name: Order-to-Cash
+  status: ILLUSTRATIVE ;;; not canonical
+  type: ValueStream
+  definition: |
+    An end-to-end sequence of value-creating stages through which a
+    customer order is transformed into delivered value and corresponding
+    financial realization.
+  stakeholder:
+    - Customer
+    - OTCHERE Inc
+  initiating_condition:
+    type: Demand
+    description: Customer requires an offering.
+  realization_boundary:
+    description: |
+      Customer receives the intended offering and OTCHERE Inc realizes
+      the corresponding commercial value.
+  stages:
+    - ES:VALUE-STAGE:ORDER-TO-CASH:CAPTURE-DEMAND
+    - ES:VALUE-STAGE:ORDER-TO-CASH:CONFIRM-ORDER
+    - ES:VALUE-STAGE:ORDER-TO-CASH:FULFILL-ORDER
+    - ES:VALUE-STAGE:ORDER-TO-CASH:DELIVER-OFFERING
+    - ES:VALUE-STAGE:ORDER-TO-CASH:REALIZE-PAYMENT
+
+model: |
+  Customer Need
+       |
+       v
+  Order-to-Cash Value Stream
+       |
+       +-- Understand Demand   --> Capture Demand Stage
+       |                              |
+       |                              v
+       |                          Confirm Order Stage
+       |                              |
+       |                              v
+       |                          Fulfil Order Stage
+       |                              |
+       |                              v
+       |                          Deliver Offering Stage
+       |                              |
+       |                              v
+       |                          Realize Payment Stage
+       |
+       v
+  Customer Value Realization
+       +
+  Commercial Value Realization (OTCHERE Inc)
+
+note: |
+  This example is illustrative and shall not automatically establish
+  Order-to-Cash as a canonical catalog Value Stream. Per CR-ES-003
+  §18 the example uses OTCHERE Inc as the enterprise context.
+  Per CR-ES-003 §3 ;;; this example does NOT create an industry
+  Value Stream catalog or an enterprise-specific Value Stream catalog.
