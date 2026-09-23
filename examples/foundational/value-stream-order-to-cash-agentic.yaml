@@ -1,0 +1,237 @@
+# Foundational example: OTCHERE Inc Order-to-Cash (Agentic)
+#
+# Per CR-ES-005 §19 + ADR-ES-005 §15.
+# Demonstrates the canonical Order-to-Cash value stream with agentic
+# participation. The example preserves the Value Stream semantics
+# (per CR-ES-005 §8) while introducing agentic participation via
+# localised scope ;; bounded authority ;; mixed realization.
+#
+# The example explicitly identifies:
+#   - the Agent
+#   - the delegated Intent
+#   - the Authority
+#   - the agentic Scope
+#   - the decision Boundary
+#   - the intervention Model
+#   - the resulting Outcome
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+id: ES:EXAMPLE:order-to-cash-agentic
+canonical_name: OTCHERE Inc Order-to-Cash (Agentic)
+status: Candidate
+per_axis_i: foundational
+provenance:
+  - source: CR-ES-005 §19
+    note: Worked example demonstrating agentic participation in Order-to-Cash value stream.
+  - source: ADR-ES-005 §15
+    note: |
+      Canonical illustration ;; the value journey remains the same
+      semantic construct ;; the realisation mechanism becomes capable
+      of agency.
+
+# The scenario
+
+scenario: |
+  OTCHERE Inc operates an Order-to-Cash value stream. Customers place
+  orders ;; OTCHERE validates and processes the orders ;; delivers
+  products or services ;; and realises customer and enterprise value.
+
+  In the agentic representation ;; certain stages are realised
+  agentically ;; while others remain conventional ;; automated ;; or
+  human. The Agent engages the value stream via:
+
+  - Customer Demand
+  - Order Capture
+  - Customer Context Interpretation
+  - Order Validation
+  - Fulfillment Path Selection
+  - Inventory / Logistics Coordination
+  - Exception Adaptation
+  - Human Escalation if Authority Exceeded
+  - Delivery
+  - Settlement
+  - Customer / Enterprise Outcome
+
+# The flow
+
+flow:
+  - step: customer_demand
+    description: |
+      Customer demand triggers the value stream. Per CR-ES-003 the
+      initiating_condition is preserved.
+    realization_mode: conventional
+    relationships:
+      - subject: ES:CONCEPT:agentic-value-stream
+        predicate: contains
+        object: ES:CONCEPT:value-stage
+
+  - step: order_capture
+    description: |
+      Order capture records the customer demand. The Value Stage
+      represents the first value transition.
+    realization_mode: conventional
+    relationships:
+      - subject: ES:CONCEPT:agentic-value-stream
+        predicate: agent-realizes
+        object: ES:CONCEPT:value-stage
+
+  - step: customer_context_interpretation
+    description: |
+      An Agent interprets the customer context ;; message tone ;;
+      prior interactions ;; account status. The agentic participation
+      is bounded by Authority and guided by delegated Intent.
+    realization_mode: agentic
+    agent_anchor:
+      subject: ES:CONCEPT:agent
+      predicate: engages
+      object: ES:CONCEPT:agentic-value-stream
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: interprets
+        object: ES:CONCEPT:intent
+
+  - step: order_validation
+    description: |
+      Order validation is conventional logic ;; not agentic ;; per
+      CR-ES-005 §11 mixed realisation is explicitly permitted.
+    realization_mode: conventional
+
+  - step: fulfillment_path_selection
+    description: |
+      An Agent selects the fulfillment path. The Agent operates
+      within defined Authority ;; selects from a defined Action set.
+    realization_mode: agentic
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: selects
+        object: ES:CONCEPT:action
+        qualification: action-selection-within-authority
+
+  - step: inventory_logistics_coordination
+    description: |
+      An Agent coordinates inventory and logistics ;; within bounded
+      Authority.
+    realization_mode: agentic
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: coordinates
+        object: ES:CONCEPT:action
+
+  - step: exception_adaptation
+    description: |
+      An Agent adapts to exceptions ;; contextual signals ;; per
+      ADR-ES-005 §4.5 (Adaptive Progression).
+    realization_mode: agentic
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: adapts-to
+        object: external:concept:context
+
+  - step: human_escalation
+    description: |
+      If Authority is exceeded ;; the Agent escalates to a human.
+      Per ADR-ES-005 §4.7 (Intervention) ;; human participation is
+      first-class ;; not an exclusion.
+    realization_mode: human-in-loop
+    relationships:
+      - subject: ES:CONCEPT:agent
+        predicate: acts-within
+        object: ES:CONCEPT:authority
+
+  - step: delivery
+    description: |
+      Delivery is automated ;; per CR-ES-005 §11 mixed realisation.
+    realization_mode: automated
+
+  - step: settlement
+    description: |
+      Settlement is automated ;; per CR-ES-005 §11 mixed realisation.
+    realization_mode: automated
+
+  - step: customer_outcome
+    description: |
+      The Agent pursues the Outcome of customer satisfaction ;;
+      enterprise revenue. Per ADR-ES-005 §4.8 (Outcome Orientation).
+    realization_mode: outcome-oriented
+    relationships:
+      - subject: ES:CONCEPT:agentic-value-stream
+        predicate: realizes
+        object: external:concept:stakeholder-value
+
+# Agentic scope
+
+agentic_scope:
+  - decision: customer-context-interpretation
+    rationale: |
+      The Agent interprets the customer context ;; bounded by Authority.
+  - decision: fulfillment-path-selection
+    rationale: |
+      The Agent selects the fulfillment path within defined Authority.
+  - decision: exception-adaptation
+    rationale: |
+      The Agent adapts to exceptions within bounded Authority.
+  - decision: human-escalation
+    rationale: |
+      The Agent escalates to humans when Authority is exceeded.
+
+# Authority and Intent
+
+authority:
+  scope: |
+    The Agent may select fulfillment paths within defined criteria ;;
+    may adapt to exceptions within bounded rules ;; may escalate to
+    humans when Authority is exceeded.
+  bounded_by:
+    - fulfillment-policy
+    - exception-handling-policy
+    - escalation-criteria
+
+delegated_intent:
+  name: Customer satisfaction + enterprise revenue realisation
+  source: |
+    Delegated by OTCHERE Inc ;; per ADR-ES-005 §4.1 (Delegated Intent).
+
+# Intervention model
+
+intervention_model: human-in-loop ;; with human escalation when Authority is exceeded
+
+# Boundaries demonstrated
+
+boundaries_demonstrated:
+  - human_in_the_loop ;; escalation when Authority exceeded ;; per ADR-ES-005 §4.7
+  - bounded_authority ;; fulfillment path selection bounded by policy ;; per ADR-ES-005 §4.6
+  - outcome_orientation ;; the Agent pursues customer satisfaction + enterprise revenue ;; per ADR-ES-005 §4.8
+  - agentic_not_ai ;; the Agent is not necessarily AI ;; per ADR-ES-005 §11 + AG-INV-001
+  - agentic_not_automation ;; the Agent selects fulfillment paths ;; automation executes predefined logic ;; per ADR-ES-005 §12 + AG-INV-002
+  - agentic_not_autonomous ;; human escalation preserved ;; per ADR-ES-005 §13 + AG-INV-003
+  - mixed_realization ;; conventional + agentic + automated + human-in-loop ;; per CR-ES-005 §11
+  - specialized_of_value_stream ;; not a replacement ;; per CR-ES-005 §5 + §8
+
+# Cardinal rules
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: 0 forbidden glyphs
+  - vendor_specific_embargo: 0 references
+  - naming: OTCHERE Inc preserved (no ACME placeholder)
+  - otchere_inc_scenario: Order-to-Cash value stream with agentic participation
+
+# Cardinal relationships used (subset of the 3 Agentic Value Stream predicates + Agent predicates from CR-ES-004)
+
+cardinal_relationships:
+  - ES:REL:specializes ;; agentic-value-stream -> value-stream
+  - ES:REL:engages ;; agentic-value-stream -> agent
+  - ES:REL:agent-realizes ;; agentic-value-stream -> value-stage
+  - ES:REL:interprets ;; agent -> intent
+  - ES:REL:selects ;; agent -> action
+  - ES:REL:coordinates ;; agent -> action
+  - ES:REL:adapts-to ;; agent -> context
+  - ES:REL:acts-within ;; agent -> authority
+  - ES:REL:realizes ;; agentic-value-stream -> external:concept:stakeholder-value
+  - ES:REL:contains ;; agentic-value-stream -> value-stage
+
+# Governance
+
+governing_adr: ADR-ES-005 §15
+governing_cr: CR-ES-005 §19

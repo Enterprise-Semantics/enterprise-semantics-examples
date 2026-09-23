@@ -13,6 +13,19 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - VS-D2 ;;; tests + PlantUML visuals (CR-ES-003 §28-§31).
 - Additional foundational examples ;;; canonical enterprise model, agentic vs autonomous comparative scenario, closed loop feedback.
 
+## [0.3.0] ; 2026-09-23 ; VS-D1b ;; 1 OTCHERE Inc Agentic Value Stream worked example (Order-to-Cash) per CR-ES-005 §19 + ADR-ES-005 §15
+
+### Added
+
+- examples/foundational/value-stream-order-to-cash-agentic.yaml ;;; new ;; 11 flow steps ;; 4 agentic scope entries ;; 10 cardinal relationships used ;; demonstrates all 8 Agentic Value Stream characteristics (delegated intent ;; contextual interpretation ;; dynamic action selection ;; agentic coordination ;; adaptive progression ;; bounded authority ;; intervention ;; outcome orientation) ;; 7 boundaries demonstrated (human-in-the-loop ;; bounded authority ;; outcome orientation ;; Agentic != AI ;; Agentic != Automation ;; Agentic != Autonomous ;; mixed realization ;; specialised of Value Stream)
+
+### Cardinal rules
+
+- Author: Emmanuel A. Otchere on the example file
+- D-004 clean ;; 0 forbidden glyphs
+- No vendor-specific material from embargoed sources
+- OTCHERE Inc naming preserved (no ACME placeholder)
+
 ## [0.2.0] ; 2026-09-23 ; CR-ES-004 VS-D1b Agentic worked example
 
 ### Added

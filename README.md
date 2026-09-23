@@ -6,7 +6,7 @@ This repository holds **worked examples** that double as **provenance evidence**
 
 ## Status
 
-**First + second example tranches (v0.1.0 Value Stream + v0.2.0 Agentic).** Value Stream examples landed via VS-D1b on 2026-09-23 (3 example YAMLs in examples/foundational/: value-stream-order-to-cash.yaml, value-stream-pay-to-fulfillment.yaml, value-stream-process-boundary.yaml).
+**First + second + third example tranches (v0.1.0 Value Stream + v0.2.0 Agentic + v0.3.0 Agentic Value Stream).** Value Stream examples landed via VS-D1b on 2026-09-23 (3 example YAMLs in examples/foundational/: value-stream-order-to-cash.yaml, value-stream-pay-to-fulfillment.yaml, value-stream-process-boundary.yaml).
 
 ## Planned examples
 
