@@ -1,0 +1,228 @@
+# Foundational example: OTCHERE Inc Fulfillment Autonomous Operations
+#
+# Per CR-ES-008 §23 + ADR-ES-008 §20.
+# Demonstrates the canonical Autonomous Operations operating mode ;;
+# with 10-step autonomous operational loop ;; 5 operational sensing
+# elements ;; explicit operational_objective ;; bounded authority ;;;
+# policy/constraint compliance ;; autonomy_scope ;; decision/action
+# scope ;; and escalation boundary.
+#
+# The example remains technology-neutral. No AI vendor ;; no specific
+# framework ;; no LLM. Per CR-ES-008 §3 + ADR-ES-008 §18.
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
+
+id: ES:EXAMPLE:otchere-autonomous-operations
+canonical_name: OTCHERE Inc Fulfillment Autonomous Operations
+status: Candidate
+per_axis_i: foundational
+provenance:
+  - source: CR-ES-008 §23
+    note: Worked example illustrating Autonomous Operations operating mode.
+  - source: ADR-ES-008 §20
+    note: |
+      Foundational example ;; OTCHERE Inc Fulfillment Autonomous
+      Operations ;; 10-step autonomous operational loop ;;
+      inventory-shortage-triggered autonomous replenishment.
+
+# Operational objective
+
+operational_objective: |
+  Per ADR-ES-008 §7.6 + §14 ;;; the Autonomous Operations pursues an
+  operational objective of fulfilling OTCHERE Inc customer orders
+  while maintaining inventory policy constraints and minimising
+  cost.
+
+# OTCHERE Inc operational context
+
+operational_context:
+  description: |
+    The OTCHERE Inc autonomous fulfillment operation monitors ;;;
+    interprets ;;; decides ;;; and acts within bounded authority ;;;
+    policy ;;; and constraints.
+  elements:
+    - order_demand
+    - inventory_conditions
+    - logistics_status
+    - customer_conditions
+    - operational_constraints
+
+# Bounded authority
+
+authority_context:
+  description: |
+    Per ADR-ES-008 §5 + §7.4 + §14 ;;; autonomous decisions occur
+    within explicit authority.
+  delegation: human_authorities_delegate_to_autonomous_operations
+
+# Policy + constraint
+
+policy_context:
+  description: |
+    Per ADR-ES-008 §14 ;;; autonomous behavior is bounded by
+    applicable policies + constraints.
+  policies:
+    - inventory_replenishment_threshold ;; replenish when stock < safety_level
+    - logistics_routing_policy ;; prefer existing routes ;; escalate new routes
+    - customer_satisfaction_constraint ;; no customer-visible cost increase
+
+# Autonomy scope
+
+autonomy_scope:
+  decision: fulfillment_routing
+  action: inventory_reallocation
+  adaptation: logistics_disruption_response
+  exception: escalation_required
+
+# Decision + action scopes
+
+decision_scope:
+  - inventory_replenishment_trigger
+  - logistics_route_selection_within_approved_set
+  - exception_classification_within_defined_set
+
+action_scope:
+  - inventory_movement_within_threshold
+  - logistics_dispatch_within_approved_routes
+  - customer_notification_for_routing_change
+
+adaptation_scope:
+  - logistics_disruption_response
+  - inventory_reallocation_strategy
+
+# Human governance
+
+intervention_model:
+  - human_policy_definition
+  - human_authority_delegation
+  - human_exception_handling
+  - human_escalation
+  - human_intervention
+  - human_emergency_override
+
+# Escalation boundary
+
+escalation_boundary:
+  - authority_exceeded
+  - policy_conflict
+  - insufficient_information
+  - unsafe_action
+  - unresolved_exception
+  - new_routing_required
+  - policy_amendment_needed
+
+# The Autonomous Operations semantic
+
+autonomous_operations:
+  id: ES:CONCEPT:autonomous-operations
+  description: |
+    Per CR-ES-008 §23 + ADR-ES-008 §20 ;;; the Autonomous Operations
+    operating mode that performs OTCHERE Inc fulfillment operational
+    decisions and actions independently within defined authority ;;
+    policy ;;; and constraints.
+
+# The 10-step autonomous operational loop
+
+autonomous_loop:
+  - step: sense
+    description: |
+      The Autonomous Operations senses operational conditions ;;
+      order demand ;; inventory levels ;; logistics status ;; customer
+      conditions ;; and operational constraints.
+  - step: interpret
+    description: |
+      The Autonomous Operations interprets the operational context ;;;
+      identifying demand patterns ;; capacity constraints ;; and
+      exception indicators.
+  - step: assess
+    description: |
+      The Autonomous Operations assesses operational constraints ;;
+      policy ;; and authority boundaries.
+  - step: decide
+    description: |
+      The Autonomous Operations independently selects the operational
+      response within bounded authority ;; per ADR-ES-008 §7.1.
+  - step: coordinate
+    description: |
+      The Autonomous Operations coordinates operational activities ;;;
+      processes ;; workflows ;; per ADR-ES-008 §7.2.
+  - step: execute
+    description: |
+      The Autonomous Operations executes the selected action ;; per
+      ADR-ES-008 §7.2 + §14.
+  - step: observe
+    description: |
+      The Autonomous Operations observes the operational outcome ;;;
+      per ADR-ES-008 §7.6.
+  - step: adapt
+    description: |
+      The Autonomous Operations adapts the operational response as
+      needed ;; per ADR-ES-008 §7.7.
+  - step: respond_to_exceptions
+    description: |
+      The Autonomous Operations responds to exceptions within bounded
+      authority ;; adapting the operational response as needed.
+  - step: escalate
+    description: |
+      If operational decisions exceed bounded authority ;; the
+      Autonomous Operations escalates to a human ;; per ADR-ES-008 §7.8.
+
+# Illustrative autonomous behavior scenario
+
+illustrative_scenario:
+  name: inventory_shortage_autonomous_response
+  steps:
+    - inventory_shortage_detected
+    - assess_demand_and_inventory
+    - evaluate_policy_and_authority
+    - select_permitted_replenishment_action
+    - execute_inventory_movement
+    - coordinate_logistics
+    - observe_result
+    - adapt_response
+    - escalate_if_authority_boundary_exceeded
+  description: |
+    Per CR-ES-008 §23 + ADR-ES-008 §20 ;;; a representative scenario
+    demonstrating autonomous decision and action within bounded
+    authority.
+
+# Boundaries demonstrated
+
+boundaries_demonstrated:
+  - autonomous_not_ai ;; the Autonomous Operations is not necessarily AI ;; per ADR-ES-008 §19
+  - autonomous_not_automation ;; per ADR-ES-008 §11 + §23
+  - autonomous_not_agentic ;; orthogonality preserved ;; per ADR-ES-008 §9 + §10
+  - autonomous_not_unattended ;; human governance preserved ;; per ADR-ES-008 §23
+  - autonomous_not_human_free ;; human intervention preserved ;; per ADR-ES-008 §8
+  - autonomous_not_unlimited ;; bounded by authority ;; per ADR-ES-008 §14
+  - autonomous_not_universal_agent ;; operations specialisation not entity subtype ;; per ADR-ES-008 §6 + §23
+  - escalation_boundary_present ;; per ADR-ES-008 §7.8 + §16
+  - technology_neutral ;; no AI vendor ;; no specific framework ;; no LLM ;; per ADR-ES-008 §18
+
+# Cardinal rules
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: 0 forbidden glyphs
+  - vendor_specific_embargo: 0 references ;; no vendor-specific material from embargoed sources
+  - naming: OTCHERE Inc preserved (no ACME placeholder)
+  - technology_neutral: no AI vendor ;; no specific framework ;; no LLM ;; per ADR-ES-008 §18 + CR-ES-008 §3
+
+# Cardinal relationships used (subset of the 10 Autonomous Operations predicates)
+
+cardinal_relationships:
+  - ES:REL:specializes ;; autonomous-operations -> operations
+  - ES:REL:operates-within ;; autonomous-operations -> authority
+  - ES:REL:governed-by ;; autonomous-operations -> policy
+  - ES:REL:pursues ;; autonomous-operations -> operational-objective
+  - ES:REL:responds-to ;; autonomous-operations -> operational-context
+  - ES:REL:produces ;; autonomous-operations -> operational-outcome
+  - ES:REL:adapts-to ;; autonomous-operations -> operational-context
+  - ES:REL:escalates-to ;; autonomous-operations -> human-authority
+  - ES:REL:uses ;; autonomous-operations -> workflow
+  - ES:REL:uses ;; autonomous-operations -> agentic-workflow
+
+# Governance
+
+governing_adr: ADR-ES-008 §20
+governing_cr: CR-ES-008 §23

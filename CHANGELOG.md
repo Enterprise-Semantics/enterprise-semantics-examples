@@ -13,6 +13,20 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - VS-D2 ;;; tests + PlantUML visuals (CR-ES-003 §28-§31).
 - Additional foundational examples ;;; canonical enterprise model, agentic vs autonomous comparative scenario, closed loop feedback.
 
+## [0.7.0] ; 2026-09-23 ; VS-D1b ;;; 1 OTCHERE Inc Fulfillment Autonomous Operations worked example per CR-ES-008 §23 + ADR-ES-008 §20
+
+### Added
+
+- examples/foundational/operations/otchere-autonomous-operations.yaml ;;; new ;; 10 autonomous operational loop steps ;; 7 escalation boundaries ;; 9 boundaries ;; 10 cardinal relationships
+
+### Cardinal rules
+
+- Author: Emmanuel A. Otchere
+- D-004 clean ;;; 0 forbidden glyphs
+- No vendor-specific material from embargoed sources
+- OTCHERE Inc preserved (no ACME placeholder)
+- Technology-neutral per ADR-ES-008 §18 + CR-ES-008 §3
+
 ## [0.6.0] ; 2026-09-23 ; VS-D1b ;;; 1 OTCHERE Inc Fulfillment Operations (Agentic Operations) worked example per CR-ES-007 §21 + ADR-ES-007 §25
 
 ### Added
