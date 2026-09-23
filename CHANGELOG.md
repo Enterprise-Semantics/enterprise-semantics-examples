@@ -27,6 +27,20 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - OTCHERE Inc preserved (no ACME placeholder)
 - Technology-neutral per ADR-ES-008 §18 + CR-ES-008 §3
 
+## [0.8.0] ; 2026-09-23 ; VS-D1b ;;; 1 OTCHERE Inc Order-to-Cash Autonomous Value Stream worked example per CR-ES-009 §24 + ADR-ES-009 §23
+
+### Added
+
+- examples/foundational/value-streams/order-to-cash-autonomous.yaml ;;; new ;; 7 value stages with distributed autonomy ;; 8 escalation boundaries ;; 11 boundaries ;; 12 cardinal relationships
+
+### Cardinal rules
+
+- Author: Emmanuel A. Otchere
+- D-004 clean ;;; 0 forbidden glyphs
+- No vendor-specific material from embargoed sources
+- OTCHERE Inc preserved (no ACME placeholder)
+- Technology-neutral per ADR-ES-009 §16 + CR-ES-009 §3
+
 ## [0.6.0] ; 2026-09-23 ; VS-D1b ;;; 1 OTCHERE Inc Fulfillment Operations (Agentic Operations) worked example per CR-ES-007 §21 + ADR-ES-007 §25
 
 ### Added
