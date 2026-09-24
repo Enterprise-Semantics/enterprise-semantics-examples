@@ -1,0 +1,197 @@
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+# Filing: VS-D1b of CR-ES-014 , Agentic Service OTCHERE Inc example
+# Per CR-ES-014 §14 + ADR-ES-014 §15 + FND-ES-AG-008
+#
+# This file models two Agentic Services for OTCHERE Inc:
+#   1. Agentic Customer Resolution Service
+#   2. Agentic Fulfillment Service
+# Per CR-ES-014 §14, the example demonstrates that material agentic
+# behavior is required, and that human escalation remains possible.
+
+example:
+  registry: enterprise-semantics
+  subject: OTCHERE Inc
+  context: Customer service operations + order fulfillment operations
+  ratified_by: ADR-ES-014
+  implemented_by: CR-ES-014
+
+services:
+
+  - id: ES:EXAMPLE:otchere-agentic-customer-resolution
+    name: Agentic Customer Resolution Service
+    canonical_concept: ES:CONCEPT:agentic-service
+    target_concept_version: v1.3.0
+    specialization_of: ES:CONCEPT:service
+    rationale: |
+      Customer Resolution Service exists at OTCHERE Inc. A conventional
+      implementation may route every request according to predefined
+      rules. The Agentic specialization adds material agentic behavior
+      in interpreting customer intent, contextual conditions, selecting
+      resolution actions, coordinating fulfillment, and adapting
+      service behavior within authority, policy, and constraint
+      boundaries.
+    customer_intent: |
+      Customer requests resolution of an issue (refund, replacement,
+      service adjustment, account inquiry, or complaint). The Agentic
+      Service interprets the customer intent and contextual conditions.
+    contextual_interpretation:
+      - customer sentiment analysis
+      - issue severity classification
+      - resolution category selection
+      - customer history context
+    service_authority:
+      - refund limit: USD 500 per incident
+      - credit limit: USD 100 per incident
+      - service adjustment limit: tier 1 only
+      - escalation thresholds: ambiguity, severity > 4, customer request
+    action_selection:
+      - refund processing
+      - credit application
+      - service adjustment dispatch
+      - escalation routing
+      - customer notification
+    permitted_service_action:
+      - within authority: automated resolution within pre-approved limits
+      - outside authority: human escalation required
+      - ambiguous exception: human escalation required
+      - customer request: human escalation honored
+    service_execution:
+      - workflow dispatch
+      - database update
+      - customer notification dispatch
+      - audit trail creation
+    outcome_observation:
+      - customer response feedback
+      - resolution outcome metrics
+      - service authority utilization
+      - escalation frequency
+    adaptation:
+      - issue pattern recognition
+      - resolution effectiveness feedback
+      - service authority threshold calibration
+    intervention_model:
+      - human-in-the-loop: available for ambiguous cases
+      - human-on-the-loop: oversight by senior representative
+      - human-over-the-loop: governance committee approval for policy exceptions
+    escalation_boundary:
+      - authority exceeded
+      - policy requires approval
+      - ambiguous exception
+      - customer requests human contact
+      - severity > 4
+    material_agentic_behavior:
+      - yes , contextual interpretation of customer intent
+      - yes , dynamic action selection within authority
+      - yes , adaptive service behavior
+      - yes , contextual exception interpretation
+      - yes , bounded service decision-making
+    human_escalation_retained:
+      - yes , escalation path active
+      - yes , senior representative oversight
+      - yes , intervention on ambiguous cases
+      - yes , approval for policy exceptions
+
+  - id: ES:EXAMPLE:otchere-agentic-fulfillment
+    name: Agentic Fulfillment Service
+    canonical_concept: ES:CONCEPT:agentic-service
+    target_concept_version: v1.3.0
+    specialization_of: ES:CONCEPT:service
+    rationale: |
+      Fulfillment Service exists at OTCHERE Inc. A conventional
+      implementation routes orders according to predefined carrier
+      and warehouse rules. The Agentic specialization adds material
+      agentic behavior in interpreting customer fulfillment intent,
+      contextual conditions (SLA, carrier availability), selecting
+      fulfillment actions, coordinating warehouse + logistics,
+      and adapting service behavior within authority, policy, and
+      constraint boundaries.
+    customer_intent: |
+      Customer requests fulfillment (order placement, modification,
+      tracking, or cancellation). The Agentic Service interprets
+      the customer intent and contextual conditions.
+    contextual_interpretation:
+      - customer sentiment analysis
+      - SLA awareness
+      - carrier availability context
+      - warehouse capacity context
+    service_authority:
+      - carrier selection: preferred list only
+      - warehouse selection: capacity-aware
+      - modification authority: within SLA
+      - cancellation authority: within policy
+    action_selection:
+      - warehouse dispatch
+      - carrier API invocation
+      - customer notification dispatch
+      - SLA monitoring
+      - escalation routing
+    permitted_service_action:
+      - within authority: automated fulfillment dispatch within SLA
+      - outside authority: human escalation required
+      - SLA breach risk: human escalation required
+      - carrier unavailable: alternative carrier selection within preferred list
+    service_execution:
+      - workflow dispatch
+      - carrier API invocation
+      - warehouse coordination
+      - customer notification dispatch
+      - audit trail creation
+    outcome_observation:
+      - fulfillment outcome metrics
+      - SLA performance metrics
+      - carrier performance metrics
+      - escalation frequency
+    adaptation:
+      - carrier performance feedback
+      - SLA breach pattern recognition
+      - fulfillment sequencing optimization
+    intervention_model:
+      - human-in-the-loop: available for ambiguous cases
+      - human-on-the-loop: oversight by fulfillment manager
+      - human-over-the-loop: governance committee approval for carrier agreement exceptions
+    escalation_boundary:
+      - authority exceeded
+      - SLA breach risk
+      - ambiguous exception
+      - customer requests human contact
+      - carrier agreement exception
+    material_agentic_behavior:
+      - yes , contextual interpretation of customer fulfillment intent
+      - yes , dynamic action selection within authority
+      - yes , adaptive fulfillment behavior
+      - yes , bounded service decision-making
+    human_escalation_retained:
+      - yes , escalation path active
+      - yes , fulfillment manager oversight
+      - yes , intervention on ambiguous exceptions
+      - yes , approval for carrier agreement exceptions
+
+demonstrates:
+  - Material agentic behavior required , both examples exhibit contextual interpretation, action selection, adaptation
+  - Service intent + service context + delegated intent represented
+  - Authority boundary + decision boundary + action selection represented
+  - Adaptation + intervention model + escalation boundary represented
+  - Agent integration represented (an Agent may participate in an Agentic Service without being the Service)
+  - Agentic Workflow integration represented where canonical
+  - Agentic Capability distinction documented
+  - Agentic Operations distinction documented
+  - Agentic Value Stream distinction documented
+  - Autonomous Service is NOT established (orthogonal at service boundary, deferred per ADR-ES-014 §19)
+  - AI is NOT required
+  - Automation is NOT sufficient
+  - Human participation remains valid (in-the-loop, on-the-loop, over-the-loop)
+
+provenance:
+  - ADR-ES-014
+  - CR-ES-014
+  - ADR-ES-002 (Service universal concept)
+  - ADR-ES-004 (Agentic semantic grounding)
+  - ADR-ES-005 (Agentic Value Stream)
+  - ADR-ES-006 (Agentic Workflow)
+  - ADR-ES-007 (Agentic Operations)
+  - ADR-ES-012 (Agentic Capability)
+  - FND-ES-AG-008
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+filing_date: 2026-09-25
+status: candidate , awaiting CR-ES-014 implementation acceptance
