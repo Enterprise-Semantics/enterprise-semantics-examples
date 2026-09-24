@@ -27,7 +27,7 @@ provenance:
 # Stakeholder anchor
 
 stakeholder_anchor: |
-  Per ADR-ES-009 §13 + AVS-AUTO-INV-002 ;;; the Autonomous Value
+  Per ADR-ES-009 §13 + AVS-AUTO-INV-002, the Autonomous Value
   Stream retains stakeholder-value orientation. The customer is the
   defining stakeholder for OTCHERE Inc Order-to-Cash operations.
 
@@ -46,7 +46,7 @@ value_proposition: |
 # Realization boundary
 
 realization_boundary: |
-  Per ADR-ES-009 §4 + AVS-AUTO-CON-004 ;;; the realization boundary
+  Per ADR-ES-009 §4 + AVS-AUTO-CON-004, the realization boundary
   spans from Customer Need through Stakeholder Outcome. The boundary
   includes all 7 stages of the OTCHERE Inc Order-to-Cash value
   stream.
@@ -63,16 +63,16 @@ value_objective: |
 autonomous_value_stream:
   id: ES:CONCEPT:autonomous-value-stream
   description: |
-    Per CR-ES-009 §24 + ADR-ES-009 §23 ;;; the Autonomous Value
+    Per CR-ES-009 §24 + ADR-ES-009 §23, the Autonomous Value
     Stream that performs OTCHERE Inc customer-order value-realization
-    decisions and actions independently within defined authority ;;;
+    decisions and actions independently within defined authority, 
     policy ;; and constraints.
 
 # Bounded authority
 
 authority_context:
   description: |
-    Per ADR-ES-009 §12 ;;; autonomous value-realization decisions
+    Per ADR-ES-009 §12, autonomous value-realization decisions
     occur within explicit authority.
   delegation: customer_authorities_delegate_to_autonomous_value_stream
 
@@ -80,7 +80,7 @@ authority_context:
 
 policy_context:
   description: |
-    Per ADR-ES-009 §12 ;;; autonomous behavior is bounded by
+    Per ADR-ES-009 §12, autonomous behavior is bounded by
     applicable policies + constraints.
   policies:
     - inventory_threshold_policy ;; replenish when stock < safety_level
@@ -197,7 +197,7 @@ realization_mode: distributed-autonomous
 # Stakeholder outcome
 
 stakeholder_outcome: |
-  Per ADR-ES-009 §13 + AVS-AUTO-CON-002 ;;; the Autonomous Value
+  Per ADR-ES-009 §13 + AVS-AUTO-CON-002, the Autonomous Value
   Stream produces Stakeholder Outcome ;; the customer receives the
   product ;; the order is fulfilled ;; stakeholder value is
   realised.
@@ -215,7 +215,7 @@ illustrative_scenario:
     - exception_response_selected
     - value_realization_adapted
   description: |
-    Per CR-ES-009 §24 + ADR-ES-009 §23 ;;; a representative scenario
+    Per CR-ES-009 §24 + ADR-ES-009 §23, a representative scenario
     demonstrating autonomous decision and action within bounded
     authority at the value-realization boundary.
 

@@ -47,19 +47,19 @@ agentic_operations:
     operating mode that coordinates the OTCHERE Inc fulfillment
     operation. The Operation is materially agentic ;; with agentic
     behavior participating across operational sensing ;; interpretation
-    ;;; decision ;;; coordination ;;; and adaptation.
+    - decision, coordination, and adaptation.
 
 # The 10-step operational loop
 
 operational_loop:
   - step: sense
     description: |
-      The Agent senses operational conditions ;; order demand ;;;
+      The Agent senses operational conditions ;; order demand, 
       inventory levels ;; logistics status ;; customer conditions ;;
       and operational constraints.
   - step: interpret
     description: |
-      The Agent interprets the operational context ;;; identifying
+      The Agent interprets the operational context, identifying
       demand patterns ;; capacity constraints ;; and exception
       indicators.
   - step: assess
@@ -69,46 +69,46 @@ operational_loop:
   - step: decide
     description: |
       The Agent selects the operational response within bounded
-      authority ;;; per ADR-ES-007 §4.6.
+      authority, per ADR-ES-007 §4.6.
   - step: coordinate
     description: |
-      The Agent coordinates operational activities ;;; processes ;;;
-      workflows ;;; per ADR-ES-007 §4.4.
+      The Agent coordinates operational activities, processes, 
+      workflows, per ADR-ES-007 §4.4.
   - step: act
     description: |
       The Agent initiates or executes the selected action ;; per
       ADR-ES-007 §4.5.
   - step: observe
     description: |
-      The Agent observes the operational outcome ;;; per ADR-ES-007 §4.6.
+      The Agent observes the operational outcome, per ADR-ES-007 §4.6.
   - step: respond_to_exceptions
     description: |
       The Agent responds to exceptions within bounded authority ;;
       adapting the operational response as needed.
   - step: escalate
     description: |
-      If operational decisions exceed bounded authority ;;; the Agent
-      escalates to a human for approval ;;; per ADR-ES-007 §4.7.
+      If operational decisions exceed bounded authority, the Agent
+      escalates to a human for approval, per ADR-ES-007 §4.7.
   - step: evaluate
     description: |
-      The Agent evaluates the operational outcome ;;; informing
-      subsequent operational decisions ;;; per ADR-ES-007 §4.6.
+      The Agent evaluates the operational outcome, informing
+      subsequent operational decisions, per ADR-ES-007 §4.6.
 
 # Workflows participating in the Operation
 
 participating_workflows:
   - workflow: order_fulfillment_workflow
-    description: Order Fulfillment Workflow ;;; may be Agentic Workflow
-    type: workflow ;;; external concept reference
+    description: Order Fulfillment Workflow, may be Agentic Workflow
+    type: workflow, external concept reference
   - workflow: inventory_replenishment_workflow
     description: Inventory Replenishment Workflow ;; conventional
-    type: workflow ;;; external concept reference
+    type: workflow, external concept reference
   - workflow: delivery_exception_workflow
     description: Delivery Exception Workflow ;; may be Agentic Workflow
-    type: workflow ;;; external concept reference
+    type: workflow, external concept reference
   - workflow: customer_escalation_workflow
     description: Customer Escalation Workflow ;; conventional
-    type: workflow ;;; external concept reference
+    type: workflow, external concept reference
 
 # Boundaries demonstrated
 
@@ -116,7 +116,7 @@ boundaries_demonstrated:
   - agentic_not_ai ;; the Agent is not necessarily AI ;; per ADR-ES-007 §14
   - agentic_not_automation ;; per ADR-ES-007 §13
   - agentic_not_autonomous ;; human escalation preserved ;; per ADR-ES-007 §15
-  - not_a_workflow ;; Agentic Operations is an operating mode ;;; not a workflow ;; per ADR-ES-007 §7
+  - not_a_workflow ;; Agentic Operations is an operating mode, not a workflow ;; per ADR-ES-007 §7
   - not_a_value_stream ;; per ADR-ES-007 §8
   - not_a_process ;; per ADR-ES-007 §10
   - multiple_workflow_participation ;; per ADR-ES-007 §21 + §25
