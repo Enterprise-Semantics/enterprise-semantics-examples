@@ -1,0 +1,248 @@
+# Foundational example: OTCHERE Inc Agentic Capabilities
+#
+# Per CR-ES-012 §19 + §22 + ADR-ES-012 §22.
+# Illustrates Agentic Capability as a contextual specialization of
+# Capability in concrete enterprise scenarios:
+#   - Customer Resolution Capability -> Agentic Customer Resolution Capability
+#   - Fulfillment Coordination Capability -> Agentic Fulfillment Coordination Capability
+#
+# Per CR-ES-012 §19: this example demonstrates that not all
+# capabilities are agentic. The Capability portfolio may contain
+# conventional, automated, agentic, and mixed realization modes.
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+id: ES:EXAMPLE:agentic-capabilities
+canonical_name: OTCHERE Inc Agentic Capabilities
+status: Candidate
+per_axis_i: foundational
+provenance:
+  - source: CR-ES-012 §19
+    note: Worked example demonstrating Capability to Agentic Capability contextual specialization.
+  - source: CR-ES-012 §22
+    note: OTCHERE Inc Customer Resolution worked example.
+  - source: ADR-ES-012 §22
+    note: Establishes the Agentic Capability transformation example pattern.
+
+# The scenario
+
+scenario: |
+  OTCHERE Inc operates an enterprise capability portfolio containing
+  capabilities realized through multiple modes: conventional human
+  execution, automated execution, agentic execution, and mixed
+  realization. The portfolio demonstrates that Agentic Capability is
+  a contextual specialization describing how a Capability is
+  materially realized, not a new foundational type of ability.
+
+  The enduring abilities (resolution, coordination, supply, finance)
+  remain stable across the portfolio. What changes is the
+  realization mode. The portfolio is therefore characterizable as a
+  mixed-realization portfolio where selected portions are
+  intentionally realized through agentic behavior.
+
+# The capability portfolio
+
+capability_portfolio:
+  customer_service:
+    canonical_id: ES:CONCEPT:capability
+    canonical_name: Customer Service
+    realizations:
+      - mode: agentic
+        canonical_id: ES:CONCEPT:agentic-capability
+        canonical_name: Agentic Customer Service Capability
+        material_agentic_realization: true
+        outcome: satisfactory customer resolution
+        description: |
+          Customer issues are interpreted contextually, resolution
+          intent is determined dynamically, authorized actions are
+          selected from a defined set, services are coordinated, and
+          outcomes are observed with adaptation or escalation
+          pathways available. Per CR-ES-012 §22 + ADR-ES-012 §22.
+  fulfillment_management:
+    canonical_id: ES:CONCEPT:capability
+    canonical_name: Fulfillment Management
+    realizations:
+      - mode: agentic
+        canonical_id: ES:CONCEPT:agentic-capability
+        canonical_name: Agentic Fulfillment Coordination Capability
+        material_agentic_realization: true
+        outcome: timely, accurate order fulfillment
+        description: |
+          Fulfillment coordination is interpreted across channels
+          and constraints, coordination intent is determined
+          dynamically, authorized coordination actions are selected,
+          services are coordinated, and outcomes are observed with
+          adaptation or escalation pathways available. Per CR-ES-012
+          §19.
+  supply_management:
+    canonical_id: ES:CONCEPT:capability
+    canonical_name: Supply Management
+    realizations:
+      - mode: conventional
+        material_agentic_realization: false
+        outcome: inventory availability
+        description: |
+          Conventional supply management with human execution and
+          predefined process ; not agentic. Per ADR-ES-012 §18
+          (Capability portfolio may contain conventional realizations).
+  financial_management:
+    canonical_id: ES:CONCEPT:capability
+    canonical_name: Financial Management
+    realizations:
+      - mode: mixed
+        material_agentic_realization: partial
+        outcome: financial reporting accuracy
+        description: |
+          Mixed realization, parts conventional, parts automated,
+          parts agentic. The Agentic Capability qualification is
+          applied only to the portions where agentic realization
+          is material ; not to the entire Financial Management
+          capability. Per ADR-ES-012 §18.
+
+# Example 1: Customer Resolution Capability
+
+example_customer_resolution:
+  capability:
+    canonical_id: ES:CONCEPT:capability
+    canonical_name: Customer Resolution Capability
+    definition: |
+      The ability to resolve customer issues toward a satisfactory
+      outcome. Enduring ability established by CR-ES-002.
+  agentic_capability:
+    canonical_id: ES:CONCEPT:agentic-capability
+    canonical_name: Agentic Customer Resolution Capability
+    definition: |
+      Per ADR-ES-012 §22 + CR-ES-012 §22. A Capability whose
+      realization materially incorporates agentic behavior in
+      resolving customer issues.
+  conventional_realization:
+    flow:
+      - Customer Issue
+      - Human Assessment
+      - Predefined Process
+      - Resolution
+  agentic_realization:
+    flow:
+      - Customer Issue
+      - Context Interpretation
+      - Determine Resolution Intent
+      - Select Authorized Action
+      - Coordinate Service
+      - Observe Outcome
+      - Adapt / Escalate
+  enduring_ability: |
+    The ability to resolve customer issues toward a satisfactory
+    outcome. Unchanged across realization modes. Per CR-ES-012 §22.
+  transformation_note: |
+    Customer Resolution Capability becomes Agentic Customer
+    Resolution Capability as a semantic specialization, not as the
+    creation of an entirely new business ability. Per CR-ES-012 §22.
+
+# Example 2: Fulfillment Coordination Capability
+
+example_fulfillment_coordination:
+  capability:
+    canonical_id: ES:CONCEPT:capability
+    canonical_name: Fulfillment Coordination Capability
+    definition: |
+      The ability to coordinate order fulfillment across channels
+      and constraints. Enduring ability established by CR-ES-002.
+  agentic_capability:
+    canonical_id: ES:CONCEPT:agentic-capability
+    canonical_name: Agentic Fulfillment Coordination Capability
+    definition: |
+      A Capability whose realization materially incorporates
+      agentic behavior in coordinating fulfillment across channels
+      and constraints.
+  conventional_realization:
+    flow:
+      - Order Received
+      - Inventory Lookup
+      - Pick / Pack / Ship (manual)
+      - Tracking Update
+  agentic_realization:
+    flow:
+      - Order Received
+      - Context Interpretation (channel, priority, customer tier)
+      - Determine Coordination Intent
+      - Select Authorized Coordination Action (parallel picks,
+        cross-warehouse substitution, expedited shipping)
+      - Coordinate Service (carrier APIs, warehouse systems)
+      - Observe Outcome (delivery confirmation, customer signal)
+      - Adapt / Escalate (carrier delay, inventory shortage)
+  enduring_ability: |
+    The ability to coordinate order fulfillment across channels and
+    constraints. Unchanged across realization modes. Per CR-ES-012
+    §19.
+
+# Boundaries demonstrated
+
+boundaries_demonstrated:
+  - capability_universality_preserved: |
+      The enduring ability remains unchanged across realization
+      modes. Agentic Capability is a contextual specialization,
+      not a replacement or new foundational type. Per ADR-ES-012
+      §2 + §4.
+  - not_every_capability_is_agentic: |
+      Supply Management and Financial Management are not Agentic
+      Capabilities. The portfolio contains mixed realization modes.
+      Per ADR-ES-012 §18.
+  - material_agentic_realization_required: |
+      Agentic behavior is material to realization, not merely
+      present. Mere Agent participation does not qualify. Per
+      ADR-ES-012 §7.
+  - ai_not_required: |
+      Agentic Capability may use AI but does not require it. The
+      fulfillment coordination example may use AI for natural
+      language understanding of customer signals without the
+      Capability being AI Capability. Per ADR-ES-012 §15.
+  - automation_not_sufficient: |
+      Automated Capability does not establish Agentic Capability.
+      The inventory lookup step is automated ; the Capability as a
+      whole is agentic because of the contextual interpretation,
+      action selection, and coordination steps, not because of
+      the automation. Per ADR-ES-012 §16.
+  - autonomy_not_implied: |
+      Agentic Capability does not imply Autonomous Capability. The
+      fulfillment coordination may operate within bounded authority
+      and may escalate ; it is not autonomous. Per ADR-ES-012 §13
+      + ACAP-CON-011.
+  - enterprise_level_separate: |
+      A single Agentic Capability does not establish Agentic
+      Enterprise. The OTCHERE Inc portfolio contains agentic
+      capabilities but is not an Agentic Enterprise (which would
+      require enterprise-level materiality). Per ADR-ES-012 §17 +
+      ACAP-CON-012.
+
+# Conformance invariants demonstrated
+
+conformance_invariants_demonstrated:
+  - ACAP-CON-001: Agentic Capability specializes Capability
+  - ACAP-CON-002: Agentic Capability retains the Capability definition of enduring ability
+  - ACAP-CON-003: Agentic behavior must be material to realization
+  - ACAP-CON-004: Agentic Capability remains outcome-oriented
+  - ACAP-CON-005: Agentic Capability may engage an Agent
+  - ACAP-CON-006: Agentic Capability may be realized through Agentic Workflow
+  - ACAP-CON-007: Agentic Capability may be supported by Agentic Operations
+  - ACAP-CON-009: Agentic Capability does not require AI
+  - ACAP-CON-010: Automation does not establish Agentic Capability
+  - ACAP-CON-011: Agentic Capability does not imply autonomy
+  - ACAP-CON-012: Agentic Capability does not imply Agentic Enterprise
+  - ACAP-CON-018: Agentic Capability requires provenance and semantic grounding
+
+# Governance
+
+governing_adr: ADR-ES-012 §22
+governing_cr: CR-ES-012 §19 + §22
+
+# Cardinal rules
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: 0 forbidden glyphs
+  - vendor_specific_embargo: 0 references
+  - naming: OTCHERE Inc preserved (no ACME placeholder)
+  - not_every_capability_is_agentic: |
+      Portfolio demonstrates mixed realization modes per ADR-ES-012
+      §18. Supply Management and Financial Management are not
+      Agentic Capabilities.
