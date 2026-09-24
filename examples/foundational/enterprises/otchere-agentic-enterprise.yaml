@@ -1,0 +1,295 @@
+# Foundational example: OTCHERE Inc Fulfillment Agentic Enterprise
+#
+# Per CR-ES-010 §14 + ADR-ES-010 §20.
+# Demonstrates the canonical Agentic Enterprise operating condition: a
+# mixed enterprise where material aspects of enterprise value realisation,
+# coordination, execution, and adaptation proceed through agentic
+# behavior, with bounded authority, policy/constraint compliance,
+# explicit intervention model, and escalation boundary.
+#
+# Per CR-ES-010 §14, the example explicitly demonstrates:
+#   - Enterprise Objective
+#   - Authority
+#   - Policies
+#   - Constraints
+#   - Decision Scope
+#   - Action Scope
+#   - Autonomy Scope
+#   - Intervention Model
+#   - Escalation Boundary
+#   - Enterprise Outcomes
+#
+# Per CR-ES-010 §14, the example demonstrates a mixed operating model:
+# agentic value streams alongside conventional and human-led operations.
+# The Agentic Enterprise does NOT require every enterprise activity to be
+# agentic (per AE-CON-013 + AE-CON-014).
+#
+# The example remains technology-neutral. No AI vendor, no specific
+# framework, no LLM. Per CR-ES-010 §3 + ADR-ES-010 §18.
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+id: ES:EXAMPLE:otchere-agentic-enterprise
+canonical_name: OTCHERE Inc Fulfillment Agentic Enterprise
+status: Candidate
+per_axis_i: foundational
+provenance:
+  - source: CR-ES-010 §14
+    note: Worked example illustrating Agentic Enterprise operating condition.
+  - source: ADR-ES-010 §20
+    note: |
+      Foundational example. OTCHERE Inc Fulfillment Agentic Enterprise.
+      Enterprise-level agentic participation via the Agentic Operating
+      Loop. 10 canonical relationships. Mixed realisation across
+      agentic, conventional, and human-led operations.
+
+# Enterprise objective
+
+enterprise_objective: |
+  Per ADR-ES-010 §1 + §6 + §7 + CR-ES-010 §2: the Agentic Enterprise
+  pursues an enterprise-level objective of fulfilling OTCHERE Inc
+  customer orders while maintaining service-level commitments,
+  optimising inventory policy, and delivering measurable customer
+  and enterprise value.
+
+# Authority
+
+authority_context: |
+  Per AE-CON-007 + AE-CON-018: the enterprise operates within defined
+  authority. The OTCHERE Inc fulfillment authority is bounded by:
+
+  - revenue_threshold_per_action: USD 50,000 (autonomous decisions
+    below this threshold escalate above)
+  - credit_limit_extension: USD 25,000 (autonomous decisions below
+    this threshold do not require credit committee approval)
+  - logistics_carrier_switching: yes (autonomous within approved
+    carrier roster)
+  - inventory_reorder: yes (autonomous within policy band)
+  - exception_escalation_threshold: severity >= high
+
+  An instance with authority = unrestricted fails conformance.
+
+# Policies
+
+policy_context: |
+  Per AE-CON-008 + ADR-ES-010 §17: the enterprise operates under
+  defined policies. The OTCHERE Inc fulfillment policy framework:
+
+  - customer_commitment_policy: SLA-tier (Gold, Silver, Bronze)
+  - inventory_policy: reorder_point_band (target_band: 0.4 to 0.6 of
+    maximum_stock)
+  - data_privacy_policy: zero PII in agentic decision rationales
+  - audit_trail_policy: full decision log with rationale retention
+    for 7 years
+  - human_intervention_policy: human approval required for orders
+    exceeding revenue_threshold_per_action
+
+# Constraints
+
+constraint_context: |
+  Per ADR-ES-010 §17: the enterprise operates within defined
+  constraints. The OTCHERE Inc fulfillment constraint set:
+
+  - regulatory: data privacy regulation (no PII in agent logs)
+  - financial: working capital exposure cap (USD 5M aggregate
+    inventory)
+  - operational: SLA minimum commitment (Gold tier = 24h fulfillment)
+  - capacity: warehouse throughput ceiling (12,000 orders / day)
+
+# Decision scope
+
+decision_scope: |
+  Per AE-CON-007 + ADR-ES-010 §6.3 + CR-ES-010 §4 + §16: the enterprise
+  may autonomously make the following decisions:
+
+  - demand response interpretation
+  - resource allocation (within capacity constraints)
+  - operational prioritisation
+  - fulfillment path selection (within approved carrier roster)
+  - inventory reorder (within reorder_point_band)
+  - service response tier assignment
+  - exception resolution (severity < high)
+  - customer credit limit assessment (within credit_limit_extension)
+
+  Decisions outside this scope escalate to human authority per the
+  escalation boundary below.
+
+# Action scope
+
+action_scope: |
+  Per AE-CON-008 + ADR-ES-010 §6 + CR-ES-010 §4 + §16: the enterprise
+  may autonomously execute the following actions:
+
+  - issue purchase orders to suppliers (within reorder band)
+  - allocate orders to fulfillment centers
+  - select logistics carrier (within approved roster)
+  - send customer notifications (within template library)
+  - apply SLA-tier credits (within credit cap)
+  - escalate to human authority (when required by escalation boundary)
+
+  Actions outside this scope require human approval per the
+  intervention model below.
+
+# Autonomy scope
+
+autonomy_scope: |
+  Per AE-CON-002 + ADR-ES-010 §6: the enterprise autonomy scope is
+  material enterprise-level decision and action autonomy in:
+
+  - value_realisation_scope: order intake to settlement (full
+    enterprise-level value journey)
+  - operational_scope: warehouse operations, logistics coordination,
+    demand sensing, exception management
+  - decision_scope: see decision_scope above
+  - action_scope: see action_scope above
+
+  The autonomy scope is bounded by the authority, policy, and
+  constraint boundaries above.
+
+# Intervention model
+
+intervention_model: |
+  Per AE-CON-009 + ADR-ES-010 §10 + CR-ES-010 §13: the enterprise
+  intervention model is:
+
+  - continuous: human oversight of governance bodies (quarterly
+    review of decision logs)
+  - conditional: human approval required when decision or action
+    exceeds authority scope
+  - exception-only: human escalation for severity >= high exceptions
+  - threshold-based: human approval required when orders exceed
+    revenue_threshold_per_action (USD 50,000)
+  - risk-based: human approval required for high-risk exception
+    categories (regulatory, data privacy, financial cap)
+  - governance-controlled: emergency intervention authority retained
+    by the OTCHERE Inc governance bodies
+
+  Human participation is permitted (human-in-the-loop, on-the-loop,
+  over-the-loop). Per AE-CON-009.
+
+# Escalation boundary
+
+escalation_boundary: |
+  Per AE-CON-007 + AE-CON-008 + ADR-ES-010 §17: the escalation
+  boundary defines when enterprise behavior must escalate to human
+  authority:
+
+  - decision exceeds authority decision_scope: escalate
+  - action exceeds authority action_scope: escalate
+  - policy conflict detected: escalate
+  - high-risk exception detected: escalate
+  - regulatory event detected: escalate
+  - data privacy violation detected: escalate
+  - financial cap reached: escalate
+  - emergency intervention requested: escalate
+
+  Escalation is a deterministic boundary, not a discretionary
+  judgment.
+
+# OTCHERE Inc enterprise context
+
+enterprise_context: |
+  The OTCHERE Inc fulfillment enterprise operates in a multi-channel
+  retail environment with three primary sales channels: direct
+  (web, mobile app), marketplace (third-party retail platforms),
+  and wholesale (B2B contracts). The enterprise pursues a
+  customer-service-leadership objective under defined governance and
+  operates a mixed agentic, conventional, and human-led realisation
+  model.
+
+# The scenario
+
+scenario: |
+  OTCHERE Inc operates a customer-fulfillment enterprise. Customers
+  place orders; OTCHERE Inc validates and processes the orders;
+  delivers products; and realises customer and enterprise value.
+
+  In the Agentic Enterprise representation, certain enterprise
+  decisions, coordination, execution, and adaptation proceed
+  through agentic behavior, while other enterprise activity
+  remains conventional, automated, or human-led.
+
+  The enterprise-level agentic operating loop is:
+
+  Enterprise Objective
+       |
+       v
+  Enterprise Context
+       |
+       v
+  Interpretation
+       |
+       v
+  Decision
+       |
+       v
+  Coordination
+       |
+       v
+  Action / Execution
+       |
+       v
+  Outcome
+       |
+       v
+  Observation
+       |
+       v
+  Adaptation
+       +------ loop back to Context
+
+  The loop iterates continuously, bounded by authority,
+  policy, and constraint boundaries above.
+
+# Mixed operating model
+
+mixed_operating_model: |
+  Per CR-ES-010 §14 + AE-CON-013 + AE-CON-014: the OTCHERE Inc
+  fulfillment enterprise demonstrates a mixed operating model.
+
+  Value Streams:
+    - agentic_value_stream: order-to-cash (agentic participation
+      at customer demand, order capture, fulfillment path
+      selection, exception adaptation stages)
+    - conventional_value_stream: post-sale support, returns
+      processing, long-tail customer service
+    - mixed_value_stream: wholesale B2B contract management
+      (agentic for routine renewals, human-led for negotiation)
+
+  Operations:
+    - agentic_operations: demand response, fulfillment
+      coordination, exception management (with material
+      agentic participation per ADR-ES-010 §15)
+    - human_led_operations: customer escalations, governance
+      committee reviews, regulatory compliance reviews
+    - conventional_operations: standard SLA management, routine
+      reporting
+
+  Workflows:
+    - agentic_workflows: order fulfillment, delivery exception
+      handling, customer notification generation
+    - conventional_workflows: invoice generation, standard
+      reporting
+
+  This mixed-mode model is architecturally valid per ADR-ES-010 §19
+  and AE-CON-013. Agentic Enterprise does NOT require every
+  enterprise activity to be agentic.
+
+# Enterprise outcomes
+
+enterprise_outcomes:
+  - customer_satisfaction_index
+  - fulfillment_velocity
+  - inventory_turnover_ratio
+  - operational_cost_per_order
+  - exception_resolution_rate
+  - governance_audit_compliance
+
+# Cardinal rules verified
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+  - dash_rule_d004: zero en-dash, zero em-dash, zero U+2E3B
+  - vendor_specific_embargo: zero references to material from embargoed sources
+  - mixed_operating_model: the example demonstrates a mixed operating model per CR-ES-010 §14
+  - ae_con_013: Agentic Enterprise does not require every enterprise activity to be agentic
