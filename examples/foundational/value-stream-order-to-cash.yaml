@@ -1,7 +1,7 @@
 # Worked Example: Order-to-Cash Value Stream for OTCHERE Inc
 #
 # Per CR-ES-003 §18 + ADR-ES-003 §22.
-# Illustrative Value Stream ;;; not a canonical catalog entry.
+# Illustrative Value Stream, not a canonical catalog entry.
 # Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
 
 example_entity:
@@ -15,7 +15,7 @@ example_entity:
 example_value_stream:
   id: ES:VALUE-STREAM:ORDER-TO-CASH
   canonical_name: Order-to-Cash
-  status: ILLUSTRATIVE ;;; not canonical
+  status: ILLUSTRATIVE, not canonical
   type: ValueStream
   definition: |
     An end-to-end sequence of value-creating stages through which a
@@ -67,5 +67,5 @@ note: |
   This example is illustrative and shall not automatically establish
   Order-to-Cash as a canonical catalog Value Stream. Per CR-ES-003
   §18 the example uses OTCHERE Inc as the enterprise context.
-  Per CR-ES-003 §3 ;;; this example does NOT create an industry
+  Per CR-ES-003 §3, this example does NOT create an industry
   Value Stream catalog or an enterprise-specific Value Stream catalog.
