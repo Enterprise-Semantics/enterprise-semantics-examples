@@ -1,0 +1,136 @@
+# examples/organizations/otchere-autonomous-organization.yaml ; OTCHERE Inc Autonomous Organization
+#
+# Per CR-ES-021 section 14 + ADR-ES-021 section 13 ; using OTCHERE
+# Inc as the reference enterprise for example instantiation of
+# the Autonomous Organization specialization.
+#
+# The example demonstrates:
+#   - organizational objective
+#   - organizational context
+#   - independent assessment
+#   - decision
+#   - action selection
+#   - coordination
+#   - execution
+#   - outcome observation
+#   - adaptation
+#   - escalation where authority is exceeded
+#
+# The example explicitly demonstrates bounded autonomy rather
+# than unrestricted organizational independence.
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+enterprise: OTCHERE Inc
+release_target: v2.0.0
+governing_artefacts:
+  adr: ADR-ES-021
+  cr: CR-ES-021
+
+organizations:
+  - id: ES:EXAMPLE:otchere:autonomous-organization
+    canonical_name: OTCHERE Inc Autonomous Operational Organization
+    concept: ES:CONCEPT:autonomous-organization
+    description: |
+      An OTCHERE Inc autonomous operational organization that
+      pursues its organizational objectives through independent
+      organizational decisions, coordination, execution, and
+      adaptation within defined Authority, Policy, Constraints,
+      Accountability, and Governance. Per ADR-ES-021 section 13 +
+      CR-ES-021 section 14.
+
+    properties:
+      organizational_objective: deliver enterprise objectives through independent organizational behavior
+      organizational_scope: enterprise operational organization
+      autonomy_scope: material organizational autonomy in decision, coordination, execution, adaptation
+      decision_scope: authorized organizational decisions
+      action_scope: authorized organizational actions
+      coordination_scope: people + services + systems + operations coordination
+      adaptation_scope: outcome-based organizational adaptation
+      organizational_context: enterprise operational context
+      authority_context: defined organizational authority
+      policy_context: regulatory + contractual + enterprise policy
+      constraint_context: regulatory + financial + contractual
+      governance_context: organizational governance boundaries
+      accountability_context: organizational accountability boundaries
+      intervention_model: human-on-the-loop with exception escalation
+      escalation_boundary: authority exceeded, escalate to human or authority
+      observation_scope: organizational outcome observation
+      realization_mode: bounded autonomy with escalation
+
+    flow: |
+      Organizational Objective
+          |
+          v
+      Organizational Context
+          |
+          v
+      Independent Assessment
+          |
+          v
+      Decision
+          |
+          v
+      Action Selection
+          |
+          v
+      Coordination
+          |
+          v
+      Execution
+          |
+          v
+      Outcome Observation
+          |
+          v
+      Adaptation
+          |
+          v
+      Escalation where authority is exceeded
+
+    orthogonality_note: |
+      Per ADR-ES-021 section 3 + section 8, Autonomous Organization
+      is orthogonal to Agentic Organization. An organization may be
+      Autonomous but not Agentic (this example), Agentic but not
+      Autonomous (per ES-020 v1.9.0), both, or neither.
+
+    boundaries:
+      - id: AORG-AUTO-EX-BND-001
+        description: Autonomous Organization is NOT Autonomous Enterprise (per ADR-ES-021 section 10 + AORG-AUTO-NEG-001)
+      - id: AORG-AUTO-EX-BND-002
+        description: Autonomous Organization is NOT Autonomous Operations (per ADR-ES-021 section 10 + AORG-AUTO-NEG-002)
+      - id: AORG-AUTO-EX-BND-003
+        description: Autonomous Organization is NOT Autonomous Service (per ADR-ES-021 section 10 + AORG-AUTO-NEG-003)
+      - id: AORG-AUTO-EX-BND-004
+        description: Autonomous Organization is NOT Autonomous Product (per ADR-ES-021 section 10 + AORG-AUTO-NEG-004)
+      - id: AORG-AUTO-EX-BND-005
+        description: Autonomous Organization is NOT Autonomous Offering (per ADR-ES-021 section 10 + AORG-AUTO-NEG-005)
+      - id: AORG-AUTO-EX-BND-006
+        description: Autonomous Organization is NOT Autonomous Workflow (per ADR-ES-021 section 10)
+      - id: AORG-AUTO-EX-BND-007
+        description: Autonomous Organization is NOT Agentic Organization (per ADR-ES-021 section 3 + section 8 + AORG-AUTO-NEG-001)
+      - id: AORG-AUTO-EX-BND-008
+        description: AI NOT required (per ADR-ES-021 section 11 + AORG-AUTO-NEG-006)
+      - id: AORG-AUTO-EX-BND-009
+        description: Automation NOT sufficient (per ADR-ES-021 section 11 + AORG-AUTO-NEG-007)
+      - id: AORG-AUTO-EX-BND-010
+        description: Human participation remains valid (per ADR-ES-021 section 7 + AORG-AUTO-NEG-008)
+      - id: AORG-AUTO-EX-BND-011
+        description: Bounded authority (per ADR-ES-021 section 12 + AORG-AUTO-NEG-009)
+      - id: AORG-AUTO-EX-BND-012
+        description: Governance retained (per ADR-ES-021 section 12 + AORG-AUTO-NEG-010)
+      - id: AORG-AUTO-EX-BND-013
+        description: Accountability retained (per ADR-ES-021 section 12 + AORG-AUTO-NEG-011)
+      - id: AORG-AUTO-EX-BND-014
+        description: Escalation supported (per ADR-ES-021 section 4 + section 12 + AORG-AUTO-NEG-012)
+
+    provenance:
+      - source: CR-ES-021 section 14
+      - source: ADR-ES-021 section 13
+      - source: "enterprise: OTCHERE Inc"
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: "0 en-dash, 0 em-dash, 0 horizontal-ellipsis divider, 0 arrow glyph"
+  - vendor_specific_embargo: "0 references"
