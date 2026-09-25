@@ -1,0 +1,193 @@
+# examples/organizations/otchere-agentic-organization.yaml ; OTCHERE Inc Agentic Organization
+#
+# Per CR-ES-020 section 21 ; ADR-ES-020 section 15 ; using OTCHERE Inc
+# as the reference enterprise for example instantiation.
+#
+# The example shall demonstrate agentic materiality at the
+# Organization boundary, not merely showing an Agent operating inside
+# an Organization.
+#
+# The example demonstrates:
+#   - organizational intent
+#   - delegated authority
+#   - agentic organizational coordination
+#   - context interpretation
+#   - decision/action selection
+#   - human + agent + system coordination
+#   - outcome observation
+#   - adaptation
+#   - escalation
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+enterprise: OTCHERE Inc
+release_target: v1.9.0
+governing_artefacts:
+  adr: ADR-ES-020
+  cr: CR-ES-020
+
+organizations:
+  - id: ES:EXAMPLE:otchere:agentic-organization
+    canonical_name: Agentic Organization
+    concept: ES:CONCEPT:agentic-organization
+    specializes: external:organization:Organization
+    description: |
+      An OTCHERE Inc organization that delegates portions of
+      customer operations to agents. The organization exhibits
+      material agentic organizational coordination in which
+      organizational decisions, coordination, and execution
+      incorporate agentic behavior within defined authority,
+      policy, and governance boundaries. Per ADR-ES-020 section 15
+      + CR-ES-020 section 21.
+
+    properties:
+      organizational_intent: fulfill customer operations objectives through bounded agentic organizational coordination
+      agentic_scope: organizational decision-making, coordination, execution
+      organizational_context: customer context, operational context
+      delegated_intent: delegated authority within organization
+      authority_context: defined organizational authority
+      decision_boundary: decisions permitted for agentic selection
+      coordination_scope: coordinated human + agent + system actors
+      action_selection_scope: actions permitted for agentic selection
+      adaptation_scope: outcome-based adaptation
+      intervention_model: human-on-the-loop with exception intervention
+      escalation_boundary: authority exceeded, escalation required
+      policy_context: customer satisfaction policy, regulatory policy
+      constraint_context: regulatory, contractual, financial
+      governance_context: organizational governance boundaries
+      accountability_context: organizational accountability boundaries
+      realization_mode: mixed
+
+    material_agentic_organizational_behaviour:
+      - delegated organizational intent interpretation
+      - contextual interpretation
+      - dynamic organizational decisions
+      - action selection
+      - coordination of human + agent + system
+      - adaptation
+      - exception interpretation
+      - organizational escalation
+      - mixed human/agent coordination
+
+    flow: |
+      Customer Context
+          |
+          v
+      Conventional Organizational Team
+          |
+          v
+      Human Decision
+          |
+          v
+      Operational Action
+
+      ...compared to:
+
+      Organizational Intent
+          |
+          v
+      Delegated Authority
+          |
+          v
+      Agentic Organizational Coordination
+          |
+          v
+      Interpret Customer / Operational Context
+          |
+          v
+      Select Permitted Action
+          |
+          v
+      Coordinate Human + Agent + System
+          |
+          v
+      Observe Outcome
+          |
+          v
+      Adapt / Escalate
+
+    conventional_comparison:
+      description: |
+        Conventional Organizational pattern vs Agentic
+        Organizational pattern per ADR-ES-020 section 15.
+
+      conventional:
+        flow: |
+          Customer Context
+              |
+              v
+          Organizational Team
+              |
+              v
+          Human Decision
+              |
+              v
+          Operational Action
+
+      agentic:
+        flow: |
+          Organizational Intent
+              |
+              v
+          Delegated Authority
+              |
+              v
+          Agentic Organizational Coordination
+              |
+              v
+          Interpret Customer / Operational Context
+              |
+              v
+          Select Permitted Action
+              |
+              v
+          Coordinate Human + Agent + System
+              |
+              v
+          Observe Outcome
+              |
+              v
+          Adapt / Escalate
+
+      difference: |
+        The organization is agentic because agentic behavior
+        materially participates in organizational coordination
+        and decision execution. The mere presence of Agents in
+        the organization would not establish this
+        classification. Per ADR-ES-020 section 15.
+
+    boundaries:
+      - id: AORG-EX-BND-001
+        description: Not an Agent (per ADR-ES-020 section 6 + AORG-NEG-001)
+      - id: AORG-EX-BND-002
+        description: Not Agentic Workflow (per ADR-ES-020 section 11 + AORG-NEG-002)
+      - id: AORG-EX-BND-003
+        description: Not Agentic Operations (per ADR-ES-020 section 7 + AORG-NEG-003)
+      - id: AORG-EX-BND-004
+        description: Not Agentic Enterprise (per ADR-ES-020 section 5 + AORG-NEG-004)
+      - id: AORG-EX-BND-005
+        description: Not Agentic Culture (per ADR-ES-020 section 14 + AORG-NEG-005)
+      - id: AORG-EX-BND-006
+        description: AI not required (per ADR-ES-020 section 9 + AORG-NEG-006)
+      - id: AORG-EX-BND-007
+        description: Automation not sufficient (per ADR-ES-020 section 10 + AORG-NEG-008)
+      - id: AORG-EX-BND-008
+        description: Human participation remains valid (per ADR-ES-020 section 11 + AORG-CON-014)
+      - id: AORG-EX-BND-009
+        description: Foundational Organization dependency documented (per ADR-ES-020 section 2 + CR-ES-020 section 2). Parent Organization NOT yet canonical.
+
+    provenance:
+      - source: CR-ES-020 section 21
+      - source: ADR-ES-020 section 15
+      - source: "enterprise: OTCHERE Inc"
+      - source: USER-DIRECTIVE-1552900782440058902
+      - source: USER-DIRECTIVE-1552912455527571546
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: "0 en-dash, 0 em-dash, 0 horizontal-ellipsis divider, 0 arrow glyph"
+  - vendor_specific_embargo: "0 references"
+  - ai_independence: enforced per ADR-ES-020 section 9 + CR-ES-020 section 14
+  - automation_independence: enforced per ADR-ES-020 section 10 + CR-ES-020 section 15
+  - foundational_dependency_gate: documented per ADR-ES-020 section 2
