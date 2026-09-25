@@ -1,0 +1,115 @@
+# examples/culture/otchere-autonomous-culture.yaml ; OTCHERE Inc Autonomous Culture
+#
+# Per CR-ES-024 section 9 + ADR-ES-024 section 9 ; using OTCHERE
+# Inc as the reference enterprise for example instantiation of the
+# Autonomous Culture specialization.
+#
+# The example demonstrates:
+#   - objective norms
+#   - delegated authority
+#   - autonomy expectations
+#   - independent decision / action
+#   - outcome observation
+#   - adaptive behavior
+#   - exception / escalation
+#   - organizational learning
+#
+# The example explicitly demonstrates bounded autonomy rather than
+# human elimination.
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+enterprise: OTCHERE Inc
+release_target: v2.2.0
+governing_artefacts:
+  adr: ADR-ES-024
+  cr: CR-ES-024
+
+cultures:
+  - id: ES:EXAMPLE:otchere:autonomous-culture
+    canonical_name: OTCHERE Inc Autonomous Culture
+    concept: ES:CONCEPT:autonomous-culture
+    description: |
+      The OTCHERE Inc Autonomous Culture ; the cultural pattern
+      in which organizational norms, values, practices, and
+      expectations materially support independent decision-making,
+      delegated action, adaptive behavior, and reduced reliance
+      on human intervention within defined objectives, authority,
+      policies, constraints, accountability, and governance
+      boundaries. Per ADR-ES-024 section 9 + CR-ES-024 section 9.
+
+    properties:
+      autonomy_scope: enterprise-wide autonomous culture
+      cultural_context: enterprise operational context
+      objective_norms: defined organizational objectives
+      delegation_norms: explicit delegation of decision rights
+      authority_norms: authorized decisions proceed without per-decision approval
+      decision_norms: independent organizational decisions
+      action_norms: independent organizational actions
+      adaptation_norms: accepted autonomous adaptation
+      intervention_norms: exception-based human intervention
+      escalation_norms: escalation when authority exceeded
+      accountability_norms: accountability for outcomes rather than every action
+      trust_norms: institutionalized trust and verification practices
+      governance_context: organizational governance boundaries
+      observation_norms: organizational outcome observation
+      realization_mode: bounded autonomy with escalation
+
+    flow: |
+      Organizational Objective
+          |
+          v
+      Delegated Authority
+          |
+          v
+      Autonomy Expectations
+          |
+          v
+      Independent Decision / Action
+          |
+          v
+      Outcome Observation
+          |
+          v
+      Adaptive Behavior
+          |
+          v
+      Exception / Escalation
+          |
+          v
+      Organizational Learning
+
+    boundaries:
+      - id: ACULT-AUTO-EX-BND-001
+        description: Autonomous Culture is NOT Autonomous Organization per ADR-ES-024 section 8
+      - id: ACULT-AUTO-EX-BND-002
+        description: Autonomous Culture is NOT Autonomous Enterprise per ADR-ES-024 section 8
+      - id: ACULT-AUTO-EX-BND-003
+        description: Autonomous Culture is NOT Autonomous Operations per ADR-ES-024 section 8
+      - id: ACULT-AUTO-EX-BND-004
+        description: Autonomous Culture is NOT Autonomous Workflow per ADR-ES-024 section 8
+      - id: ACULT-AUTO-EX-BND-005
+        description: Autonomous Culture is NOT Agentic Culture per ADR-ES-024 section 5 + ADR-ES-022 section 5
+      - id: ACULT-AUTO-EX-BND-006
+        description: AI NOT required per ADR-ES-024 section 6
+      - id: ACULT-AUTO-EX-BND-007
+        description: Automation NOT sufficient per ADR-ES-024 section 6
+      - id: ACULT-AUTO-EX-BND-008
+        description: Human participation remains valid per ADR-ES-024 section 6
+      - id: ACULT-AUTO-EX-BND-009
+        description: Bounded authority per ADR-ES-024 section 12
+      - id: ACULT-AUTO-EX-BND-010
+        description: Governance retained per ADR-ES-024 section 12
+      - id: ACULT-AUTO-EX-BND-011
+        description: Accountability retained per ADR-ES-024 section 12
+
+    provenance:
+      - source: CR-ES-024 section 9
+      - source: ADR-ES-024 section 9
+      - source: "enterprise: OTCHERE Inc"
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: "0 en-dash, 0 em-dash, 0 horizontal-ellipsis divider, 0 arrow glyph"
+  - vendor_specific_embargo: "0 references"
