@@ -1,0 +1,251 @@
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+# Filing: VS-D1b of CR-ES-015 , Autonomous Service OTCHERE Inc example
+# Per CR-ES-015 §15 + ADR-ES-015 §15 + FND-ES-AG-008
+#
+# This file models two Autonomous Services for OTCHERE Inc:
+#   1. Autonomous Customer Resolution Service
+#   2. Autonomous Fulfillment Service
+# Per CR-ES-015 §15, the example demonstrates routine autonomous
+# progression while preserving human escalation for exceptions.
+
+example:
+  registry: enterprise-semantics
+  subject: OTCHERE Inc
+  context: Customer service operations + order fulfillment operations
+  ratified_by: ADR-ES-015
+  implemented_by: CR-ES-015
+
+services:
+
+  - id: ES:EXAMPLE:otchere-autonomous-customer-resolution
+    name: Autonomous Customer Resolution Service
+    canonical_concept: ES:CONCEPT:autonomous-service
+    target_concept_version: v1.4.0
+    specialization_of: ES:CONCEPT:service
+    rationale: |
+      Customer Resolution Service exists at OTCHERE Inc. The
+      Autonomous specialization adds bounded independent
+      progression through assessment, decision, action selection,
+      execution, outcome observation, and adaptation within
+      authority, policy, constraint, governance, and service
+      contract boundaries. The Service concept remains universal ;
+      the specialization qualifies realization with autonomy.
+    service_objective: |
+      Resolve customer issues while preserving customer
+      satisfaction, business policy compliance, and customer
+      trust. Resolution within authority without requiring human
+      intervention for every service decision/action.
+    autonomy_scope:
+      - customer request assessment
+      - resolution path determination within authority
+      - resolution action selection
+      - resolution execution
+      - outcome observation
+    service_context:
+      - customer sentiment
+      - customer history
+      - issue severity
+      - policy compliance posture
+    decision_scope:
+      - issue severity classification
+      - resolution category selection
+      - refund authorization (within pre-approved limits)
+      - credit authorization (within pre-approved limits)
+      - service adjustment (within tier 1 only)
+      - escalation trigger determination
+    action_scope:
+      - customer notification dispatch
+      - refund processing
+      - credit application
+      - service adjustment
+      - escalation routing
+    coordination_scope:
+      - fulfillment coordination
+      - warehouse coordination (where canonical)
+      - carrier coordination (where canonical)
+    authority_context:
+      - refund limit: USD 500 per incident
+      - credit limit: USD 100 per incident
+      - service adjustment limit: tier 1 only
+      - escalation thresholds: ambiguity, severity > 4, customer request
+    policy_context:
+      - OTCHERE Inc customer service policy
+      - regulatory compliance requirements
+      - data privacy requirements
+      - communication standards
+    constraint_context:
+      - no refunds for closed accounts
+      - no refunds during investigation
+      - no service adjustments outside tier 1
+      - no action that affects billing without authorization
+    governance_context:
+      - audit trail required for all actions
+      - human oversight mandatory for ambiguous cases
+      - escalation path to senior representative
+      - post-action review for high-severity issues
+    adaptation_scope:
+      - issue pattern recognition
+      - resolution effectiveness feedback
+      - authority threshold calibration
+    intervention_model:
+      - human-in-the-loop: available for ambiguous cases
+      - human-on-the-loop: oversight by senior representative
+      - human-over-the-loop: governance committee approval for policy exceptions
+      - exception-based intervention
+      - approval for high-impact decisions
+    escalation_boundary:
+      - authority exceeded (refund > USD 500, credit > USD 100)
+      - policy requires approval
+      - ambiguous exception
+      - customer requests human contact
+      - severity > 4
+    observation_scope:
+      - customer response feedback
+      - resolution outcome metrics
+      - authority utilization metrics
+      - escalation frequency metrics
+    service_outcome: |
+      Resolved customer issue within authority, with audit trail,
+      customer satisfaction preserved, and escalation available
+      when authority is exceeded.
+    material_autonomous_progression:
+      - yes , independent decision execution within authority
+      - yes , independent action execution within authority
+      - yes , autonomous coordination within scope
+      - yes , autonomous exception handling within authority
+      - yes , adaptive service behavior within scope
+      - yes , autonomous progression toward service objective
+    human_participation_retained:
+      - yes , senior representative oversight
+      - yes , escalation path active
+      - yes , intervention on ambiguous cases
+      - yes , approval for policy exceptions
+
+  - id: ES:EXAMPLE:otchere-autonomous-fulfillment
+    name: Autonomous Fulfillment Service
+    canonical_concept: ES:CONCEPT:autonomous-service
+    target_concept_version: v1.4.0
+    specialization_of: ES:CONCEPT:service
+    rationale: |
+      Fulfillment Service exists at OTCHERE Inc. The Autonomous
+      specialization adds bounded independent progression through
+      order tracking, coordination dispatch, exception
+      assessment, resolution routing, and outcome observation
+      within authority, policy, constraint, governance, and
+      service contract boundaries.
+    service_objective: |
+      Coordinate end-to-end order fulfillment while preserving
+      customer satisfaction, business policy compliance, and
+      operational efficiency. Coordination within authority
+      without requiring human intervention for every service
+      decision/action.
+    autonomy_scope:
+      - order tracking
+      - coordination dispatch
+      - exception assessment
+      - resolution routing
+      - outcome observation
+    service_context:
+      - customer sentiment
+      - SLA awareness
+      - carrier availability
+      - warehouse capacity
+    decision_scope:
+      - exception classification
+      - coordination sequencing
+      - notification timing
+      - carrier selection (within preferred list)
+      - escalation trigger determination
+    action_scope:
+      - warehouse coordination dispatch
+      - logistics coordination dispatch
+      - customer notification dispatch
+      - carrier API invocation
+      - escalation routing
+    coordination_scope:
+      - warehouse coordination
+      - carrier coordination
+      - logistics coordination
+    authority_context:
+      - carrier selection: preferred list only
+      - notification timing: within agreed SLA
+      - exception handling: within pre-defined categories
+      - escalation thresholds: ambiguity, exception severity, SLA breach
+    policy_context:
+      - OTCHERE Inc fulfillment policy
+      - customer SLA requirements
+      - carrier agreement requirements
+      - data privacy requirements
+    constraint_context:
+      - no carrier selection outside preferred list
+      - no notification outside SLA
+      - no action that affects billing without authorization
+      - no exception handling outside pre-defined categories
+    governance_context:
+      - audit trail required for all actions
+      - human oversight mandatory for ambiguous exceptions
+      - escalation path to fulfillment manager
+      - post-action review for SLA breaches
+    adaptation_scope:
+      - carrier performance feedback
+      - SLA breach pattern recognition
+      - coordination sequencing optimization
+    intervention_model:
+      - human-in-the-loop: available for ambiguous exceptions
+      - human-on-the-loop: oversight by fulfillment manager
+      - human-over-the-loop: governance committee approval for carrier agreement exceptions
+      - exception-based intervention
+      - approval for high-impact decisions
+    escalation_boundary:
+      - authority exceeded (carrier outside preferred list)
+      - policy requires approval
+      - ambiguous exception
+      - customer requests human contact
+      - SLA breach risk
+    observation_scope:
+      - fulfillment outcome metrics
+      - carrier performance metrics
+      - coordination efficiency metrics
+      - escalation frequency metrics
+    service_outcome: |
+      Coordinated fulfillment within authority, with audit trail,
+      customer satisfaction preserved, and escalation available
+      when authority is exceeded.
+    material_autonomous_progression:
+      - yes , independent decision execution within authority
+      - yes , independent action execution within authority
+      - yes , autonomous coordination within scope
+      - yes , autonomous exception handling within authority
+      - yes , adaptive service behavior within scope
+      - yes , autonomous progression toward service objective
+    human_participation_retained:
+      - yes , fulfillment manager oversight
+      - yes , escalation path active
+      - yes , intervention on ambiguous exceptions
+      - yes , approval for carrier agreement exceptions
+
+demonstrates:
+  - Autonomous Service does NOT require removal of humans , both examples retain escalation and oversight
+  - Autonomous Service operates within bounded authority , both examples define explicit authority contexts
+  - Autonomous Service operates within policy + constraints + governance + service contract
+  - Autonomous Service may coexist with Agentic behavior , both examples may exhibit agentic interpretation in ambiguous cases
+  - Autonomous Service is NOT autonomous operations , these are service-level examples, not operations-level
+  - Autonomous Service is NOT autonomous value stream , these are service-level examples, not value-stream level
+  - Autonomous Service is NOT autonomous enterprise , these are service-level examples at OTCHERE Inc, not enterprise-level
+  - Autonomous progression is material in both examples , routine decisions/actions progress independently within authority
+
+provenance:
+  - ADR-ES-015
+  - CR-ES-015
+  - ADR-ES-002 (Service universal concept)
+  - ADR-ES-004 (Agentic semantic grounding)
+  - ADR-ES-008 (Autonomous Operations)
+  - ADR-ES-009 (Autonomous Value Stream)
+  - ADR-ES-011 (Autonomous Enterprise)
+  - ADR-ES-013 (Autonomous Capability)
+  - ADR-ES-014 (Agentic Service)
+  - FND-ES-AG-008
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+filing_date: 2026-09-25
+status: candidate , awaiting CR-ES-015 implementation acceptance
