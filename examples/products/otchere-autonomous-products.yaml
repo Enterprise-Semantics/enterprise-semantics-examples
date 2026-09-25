@@ -1,0 +1,117 @@
+# examples/products/otchere-autonomous-products.yaml ;; OTCHERE Inc Autonomous Products
+#
+# Per CR-ES-017 §13 and ADR-ES-017 §12, using OTCHERE Inc as the
+# reference enterprise for example instantiation.
+#
+# The example shall demonstrate:
+#   - autonomous decision progression
+#   - autonomous action selection
+#   - defined authority
+#   - policy and constraints
+#   - adaptation
+#   - outcome observation
+#   - escalation
+#   - optional human intervention
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+enterprise: OTCHERE Inc
+release_target: v1.6.0
+governing_artefacts:
+  adr: ADR-ES-017
+  cr: CR-ES-017
+
+products:
+  - id: ES:EXAMPLE:otchere:autonomous-customer-resolution-product
+    canonical_name: Autonomous Customer Resolution Product
+    concept: ES:CONCEPT:autonomous-product
+    specializes: external:product:Customer-Resolution-Product
+    description: |
+      An OTCHERE Inc customer resolution product where the product
+      realization can progress through material product decisions
+      and actions within defined product objectives, authority,
+      policies, constraints, and governance boundaries without
+      requiring human intervention for every decision. Per
+      ADR-ES-017 §12 + CR-ES-017 §13.
+
+    properties:
+      product_objective: resolve customer issues with bounded autonomous progression
+      autonomy_scope: resolution path selection, action coordination, outcome adaptation
+      product_context: customer request, customer history, customer preference
+      decision_scope: resolution path decisions
+      action_scope: resolution action repertoire
+      coordination_scope: product component coordination
+      authority_context: defined resolution authority
+      policy_context: customer satisfaction policy
+      constraint_context: regulatory, contractual, financial
+      governance_context: resolution governance framework
+      adaptation_scope: outcome-based adaptation
+      intervention_model: human-on-loop with exception intervention
+      escalation_boundary: authority exceeded, customer escalation, regulatory threshold
+      observation_scope: customer outcome observation
+      realization_mode: mixed
+
+    material_autonomous_progression:
+      - independent product decisions (resolution path)
+      - independent selection of permitted actions
+      - autonomous configuration
+      - autonomous coordination
+      - autonomous fulfillment progression
+      - contextual adaptation (customer feedback)
+      - autonomous exception handling
+      - autonomous progression toward product objectives
+
+    flow: |
+      Customer Request
+          |
+          v
+      Autonomous Customer Resolution Product
+          |
+          v
+      Assess Customer Context
+          |
+          v
+      Determine Product Objective
+          |
+          v
+      Evaluate Authority / Policy / Constraints
+          |
+          v
+      Select Permitted Resolution
+          |
+          v
+      Execute Resolution
+          |
+          v
+      Observe Outcome
+          |
+          v
+      Adapt / Escalate
+          <loop>
+
+    boundaries:
+      - id: APROD-EX-BND-001
+        description: Not an Agent (per ADR-ES-017 §13 + APROD-AUTO-NEG-016)
+      - id: APROD-EX-BND-002
+        description: Not an Autonomous Capability (per ADR-ES-017 §11 + APROD-AUTO-NEG-003)
+      - id: APROD-EX-BND-003
+        description: Not an Autonomous Service (per ADR-ES-017 §11 + APROD-AUTO-NEG-002)
+      - id: APROD-EX-BND-004
+        description: Not an Agentic Product (per ADR-ES-017 §2 + §8 + APROD-AUTO-NEG-001)
+      - id: APROD-EX-BND-005
+        description: AI not required (per ADR-ES-017 §9 + APROD-AUTO-NEG-006)
+      - id: APROD-EX-BND-006
+        description: Automation not sufficient (per ADR-ES-017 §10 + APROD-AUTO-NEG-008)
+      - id: APROD-EX-BND-007
+        description: Human participation remains compatible (per ADR-ES-017 §6 + APROD-AUTO-CON-014)
+
+    provenance:
+      - source: CR-ES-017 §13
+      - source: ADR-ES-017 §12
+      - source: "enterprise: OTCHERE Inc"
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: "0 en-dash, 0 em-dash, 0 horizontal-ellipsis divider, 0 arrow glyph"
+  - vendor_specific_embargo: "0 references"
+  - ai_independence: enforced per ADR-ES-017 §9 + CR-ES-017 §10
+  - automation_independence: enforced per ADR-ES-017 §10 + CR-ES-017 §10
