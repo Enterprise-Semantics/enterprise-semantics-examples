@@ -1,0 +1,163 @@
+# examples/products/otchere-agentic-products.yaml ;; OTCHERE Inc Agentic Products
+#
+# Per CR-ES-016 §20 and ADR-ES-016 §16, using OTCHERE Inc as the
+# reference enterprise for example instantiation.
+#
+# The example shall demonstrate:
+#   - delegated intent
+#   - contextual interpretation
+#   - authority
+#   - action selection
+#   - policy/constraint boundaries
+#   - outcome orientation
+#   - adaptation
+#   - human escalation
+# And shall NOT require AI.
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+enterprise: OTCHERE Inc
+release_target: v1.5.0
+governing_artefacts:
+  adr: ADR-ES-016
+  cr: CR-ES-016
+
+products:
+  - id: ES:EXAMPLE:otchere:agentic-customer-resolution-product
+    canonical_name: Agentic Customer Resolution Product
+    concept: ES:CONCEPT:agentic-product
+    specializes: external:product:Customer-Resolution-Product
+    description: |
+      An OTCHERE Inc customer resolution product where the product
+      realization materially incorporates agentic behavior in
+      interpreting customer context, selecting permitted resolution
+      actions, coordinating resolution components, adapting to
+      customer feedback, and escalating when authority boundaries are
+      exceeded. Per ADR-ES-016 §16 + CR-ES-016 §20.
+
+    properties:
+      product_intent: resolve customer issues with bounded autonomy
+      agentic_scope: resolution path selection, action coordination, outcome adaptation
+      product_context: customer request, customer history, customer preference
+      delegated_intent: customer's resolution goal
+      authority_context: defined resolution authority
+      decision_boundary: resolution path selection
+      action_selection_scope: resolution action repertoire
+      coordination_scope: product component coordination
+      adaptation_scope: outcome-based adaptation
+      intervention_model: human-on-loop
+      escalation_boundary: authority exceeded, customer escalation
+      policy_context: customer satisfaction policy
+      constraint_context: regulatory, contractual, financial
+      realization_mode: mixed
+
+    material_agentic_realization:
+      - intent interpretation (customer intent)
+      - contextual interpretation (customer context, history)
+      - dynamic action selection (resolution path)
+      - agentic coordination (product components)
+      - contextual adaptation (customer feedback)
+      - exception interpretation (resolution exceptions)
+      - bounded decision-making (resolution authority)
+      - escalation (authority exceeded)
+
+    flow: |
+      Customer Intent
+          |
+          v
+      Agentic Customer Resolution Product
+          |
+          v
+      Customer Context Interpretation
+          |
+          v
+      Permitted Resolution Selection
+          |
+          v
+      Action Coordination
+          |
+          v
+      Resolution Execution
+          |
+          v
+      Customer Outcome
+          |
+          v
+      Adapt / Escalate
+          <loop>
+
+    boundaries:
+      - id: APROD-EX-BND-001
+        description: Not an Agent (per ADR-ES-016 §5 + APROD-NEG-001)
+      - id: APROD-EX-BND-002
+        description: Not an Agentic Capability (per ADR-ES-016 §10 + APROD-NEG-002)
+      - id: APROD-EX-BND-003
+        description: Not an Agentic Service (per ADR-ES-016 §9 + APROD-NEG-003)
+      - id: APROD-EX-BND-004
+        description: Not an Autonomous Product (per ADR-ES-016 §12 + APROD-NEG-011)
+      - id: APROD-EX-BND-005
+        description: AI not required (per ADR-ES-016 §13 + APROD-NEG-007)
+      - id: APROD-EX-BND-006
+        description: Automation not sufficient (per ADR-ES-016 §14 + APROD-NEG-009)
+      - id: APROD-EX-BND-007
+        description: Human participation valid (per ADR-ES-016 §15 + APROD-CON-012)
+
+    provenance:
+      - source: CR-ES-016 §20
+      - source: ADR-ES-016 §16
+      - source: "enterprise: OTCHERE Inc"
+
+    conventional_comparison:
+      description: |
+        Conventional Customer Resolution Product vs Agentic Customer
+        Resolution Product per ADR-ES-016 §16.
+
+      conventional:
+        flow: |
+          Customer Request
+              |
+              v
+          Customer Resolution Product
+              |
+              v
+          Predefined Resolution Options
+              |
+              v
+          Resolution
+
+      agentic:
+        flow: |
+          Customer Intent
+              |
+              v
+          Agentic Customer Resolution Product
+              |
+              v
+          Interpret Customer Context
+              |
+              v
+          Determine Permitted Resolution Path
+              |
+              v
+          Select / Coordinate Actions
+              |
+              v
+          Execute Resolution
+              |
+              v
+          Observe Customer Outcome
+              |
+              v
+          Adapt or Escalate
+
+      difference: |
+        The product is agentic because agentic behavior materially
+        participates in the realization of the product's intended
+        outcome. The use of an AI model alone would not establish
+        this classification. Per ADR-ES-016 §16.
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: "0 en-dash, 0 em-dash, 0 horizontal-ellipsis divider, 0 arrow glyph"
+  - vendor_specific_embargo: "0 references"
+  - ai_independence: enforced per ADR-ES-016 §13 + CR-ES-016 §10
+  - automation_independence: enforced per ADR-ES-016 §14 + CR-ES-016 §11
