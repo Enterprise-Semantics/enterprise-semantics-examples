@@ -1,0 +1,175 @@
+# examples/offerings/otchere-agentic-offerings.yaml ;; OTCHERE Inc Agentic Offerings
+#
+# Per CR-ES-018 §17 and ADR-ES-018 §14, using OTCHERE Inc as the
+# reference enterprise for example instantiation.
+#
+# The example shall demonstrate agentic materiality at the Offering
+# boundary, not merely inherit the classification from an Agentic
+# Product or Agentic Service.
+#
+# The example demonstrates:
+#   - stakeholder intent interpretation
+#   - contextual interpretation
+#   - dynamic composition/configuration
+#   - bounded authority
+#   - action selection
+#   - coordination
+#   - adaptation
+#   - escalation
+#   - human participation preserved
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+enterprise: OTCHERE Inc
+release_target: v1.7.0
+governing_artefacts:
+  adr: ADR-ES-018
+  cr: CR-ES-018
+
+offerings:
+  - id: ES:EXAMPLE:otchere:agentic-integrated-business-offering
+    canonical_name: Agentic Integrated Business Offering
+    concept: ES:CONCEPT:agentic-offering
+    specializes: external:offering:Integrated-Business-Offering
+    description: |
+      An OTCHERE Inc integrated enterprise offering combining
+      Products and Services where the offering's composition,
+      interaction, configuration, fulfillment, or value realization
+      materially incorporates agentic behavior. Per ADR-ES-018 §14
+      + CR-ES-018 §17.
+
+    properties:
+      offering_intent: fulfill customer need with bounded agentic realization
+      agentic_scope: proposition determination, composition, coordination
+      offering_context: customer need, customer context, market context
+      delegated_intent: customer intent
+      authority_context: defined offering authority
+      decision_boundary: proposition selection
+      configuration_scope: offering configuration repertoire
+      composition_scope: product/service component composition
+      coordination_scope: offering component coordination
+      adaptation_scope: outcome-based adaptation
+      intervention_model: human-on-loop with exception intervention
+      escalation_boundary: authority exceeded, customer escalation
+      policy_context: customer satisfaction policy
+      constraint_context: regulatory, contractual, financial
+      realization_mode: mixed
+
+    material_agentic_realization:
+      - stakeholder intent interpretation
+      - contextual interpretation
+      - dynamic configuration
+      - dynamic composition
+      - coordinated fulfillment
+      - coordinated multi-service interaction
+      - contextual adaptation
+      - exception interpretation
+      - bounded decision-making
+      - escalation
+
+    flow: |
+      Customer Intent
+          |
+          v
+      Agentic Integrated Business Offering
+          |
+          v
+      Interpret Customer Context
+          |
+          v
+      Determine Appropriate Proposition
+          |
+          v
+      Compose Product + Service Components
+          |
+          v
+      Coordinate Fulfillment
+          |
+          v
+      Observe Customer Outcome
+          |
+          v
+      Adapt / Escalate
+          <loop>
+
+    conventional_comparison:
+      description: |
+        Conventional Integrated Business Offering vs Agentic
+        Integrated Business Offering per ADR-ES-018 §14.
+
+      conventional:
+        flow: |
+          Customer Need
+              |
+              v
+          OTCHERE Integrated Business Offering
+              |
+              v
+          Select Product
+              |
+              v
+          Select Service
+              |
+              v
+          Fulfill
+
+      agentic:
+        flow: |
+          Customer Intent
+              |
+              v
+          Agentic Integrated Business Offering
+              |
+              v
+          Interpret Customer Context
+              |
+              v
+          Determine Appropriate Proposition
+              |
+              v
+          Compose Product + Service Components
+              |
+              v
+          Coordinate Fulfillment
+              |
+              v
+          Observe Customer Outcome
+              |
+              v
+          Adapt / Escalate
+
+      difference: |
+        The offering is agentic because agentic behavior materially
+        affects the proposition realization, composition, interaction,
+        or fulfillment. The presence of an AI model, a chatbot, or
+        automated ordering alone would not establish this
+        classification. Per ADR-ES-018 §14.
+
+    boundaries:
+      - id: AOFF-EX-BND-001
+        description: Not an Agent (per ADR-ES-018 §15 + AOFF-NEG-001)
+      - id: AOFF-EX-BND-002
+        description: Not an Agentic Product (per ADR-ES-018 §3 + AOFF-NEG-002)
+      - id: AOFF-EX-BND-003
+        description: Not an Agentic Service (per ADR-ES-018 §4 + AOFF-NEG-003)
+      - id: AOFF-EX-BND-004
+        description: AI not required (per ADR-ES-018 §7 + AOFF-NEG-007)
+      - id: AOFF-EX-BND-005
+        description: Automation not sufficient (per ADR-ES-018 §8 + AOFF-NEG-009)
+      - id: AOFF-EX-BND-006
+        description: Human participation remains valid (per ADR-ES-018 §9 + AOFF-CON-013)
+      - id: AOFF-EX-BND-007
+        description: Foundational Offering dependency documented (per ADR-ES-018 §16 + CR-ES-018 §2). Parent Offering NOT yet canonical.
+
+    provenance:
+      - source: CR-ES-018 §17
+      - source: ADR-ES-018 §14
+      - source: "enterprise: OTCHERE Inc"
+      - source: USER-DIRECTIVE-1552900782440058902
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: "0 en-dash, 0 em-dash, 0 horizontal-ellipsis divider, 0 arrow glyph"
+  - vendor_specific_embargo: "0 references"
+  - ai_independence: enforced per ADR-ES-018 §7 + CR-ES-018 §14
+  - automation_independence: enforced per ADR-ES-018 §8 + CR-ES-018 §14
+  - foundational_dependency_gate: documented per ADR-ES-018 §16
