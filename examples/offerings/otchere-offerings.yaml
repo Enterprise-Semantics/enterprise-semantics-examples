@@ -1,0 +1,112 @@
+# examples/offerings/otchere-offerings.yaml ; OTCHERE Inc Offering
+#
+# Per CR-ES-021 section 13 + ADR-ES-021 section 10 ; using OTCHERE
+# Inc as the reference enterprise for example instantiation of the
+# canonical Offering concept.
+#
+# The example demonstrates:
+#   - customer need
+#   - offering objective
+#   - context assessment
+#   - authority + policy + constraints + governance
+#   - product + service + capability configuration
+#   - coordinated fulfillment
+#   - customer outcome
+#   - value realization
+#   - adaptation
+#   - escalation
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+enterprise: OTCHERE Inc
+release_target: v1.8.1
+governing_artefacts:
+  adr: ADR-ES-021
+  cr: CR-ES-021
+
+offerings:
+  - id: ES:EXAMPLE:otchere:offering
+    canonical_name: OTCHERE Inc Integrated Business Offering
+    concept: ES:CONCEPT:offering
+    description: |
+      An OTCHERE Inc integrated business offering that satisfies
+      a defined Customer Need through a coordinated bundle of
+      Products, Services, and Capabilities. The Offering
+      progresses through context assessment, configuration,
+      composition, fulfillment, and value realization to
+      produce Customer Outcome. Per ADR-ES-021 section 10 +
+      CR-ES-021 section 13.
+
+    properties:
+      customer_need: satisfy enterprise customer requirement through coordinated bundle
+      offering_objective: deliver customer outcome within authority, policy, constraints, governance
+      offering_context: enterprise customer context
+      authority_context: defined enterprise authority
+      policy_context: customer satisfaction policy, regulatory policy
+      constraint_context: regulatory, contractual, financial
+      governance_context: organizational governance boundaries
+      configuration_scope: product + service + capability configuration
+      composition_scope: coordinated bundle
+      fulfillment_scope: coordinated fulfillment
+      value_realization_scope: customer outcome realization
+      customer_outcome_scope: customer outcome production
+      escalation_boundary: authority exceeded, escalation required
+
+    constituents:
+      - product: OTCHERE Inc Product line
+      - service: OTCHERE Inc Service delivery
+      - capability: OTCHERE Inc Capability stack
+
+    flow: |
+      Customer Need
+          |
+          v
+      Integrated Offering
+          |
+          v
+      Assess Customer Context
+          |
+          v
+      Determine Offering Objective
+          |
+          v
+      Evaluate Authority / Policy / Constraints
+          |
+          v
+      Select Product + Service + Capability Configuration
+          |
+          v
+      Coordinate Fulfillment
+          |
+          v
+      Observe Customer Outcome
+          |
+          v
+      Adapt / Escalate
+
+    boundaries:
+      - id: OFFR-EX-BND-001
+        description: Offering is NOT Product (per ADR-ES-021 section 5 + OFFR-NEG-001 + OFFR-NEG-008)
+      - id: OFFR-EX-BND-002
+        description: Offering is NOT Service (per ADR-ES-021 section 5 + OFFR-NEG-002 + OFFR-NEG-009)
+      - id: OFFR-EX-BND-003
+        description: Offering is NOT Capability (per ADR-ES-021 section 5 + OFFR-NEG-003 + OFFR-NEG-010)
+      - id: OFFR-EX-BND-004
+        description: Offering is NOT Value Stream (per ADR-ES-021 section 6 + OFFR-NEG-004 + OFFR-NEG-011)
+      - id: OFFR-EX-BND-005
+        description: Offering is NOT Enterprise (per ADR-ES-021 section 7 + OFFR-NEG-005 + OFFR-NEG-012)
+      - id: OFFR-EX-BND-006
+        description: Offering is NOT Customer Need (per ADR-ES-021 section 8 + OFFR-NEG-006)
+      - id: OFFR-EX-BND-007
+        description: Offering is NOT Fulfillment Process (per ADR-ES-021 section 9 + OFFR-NEG-007)
+
+    provenance:
+      - source: CR-ES-021 section 13
+      - source: ADR-ES-021 section 10
+      - source: "enterprise: OTCHERE Inc"
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: "0 en-dash, 0 em-dash, 0 horizontal-ellipsis divider, 0 arrow glyph"
+  - vendor_specific_embargo: "0 references"
