@@ -1,0 +1,115 @@
+# examples/organizations/otchere-organizations.yaml ; OTCHERE Inc Organization
+#
+# Per CR-ES-022 section 13 + ADR-ES-022 section 10 ; using OTCHERE
+# Inc as the reference enterprise for example instantiation of the
+# canonical Organization concept.
+#
+# The example demonstrates:
+#   - organizational intent
+#   - actor coordination (human + non-human)
+#   - role + responsibility allocation
+#   - authority delegation
+#   - resource marshaling
+#   - activity undertaking
+#   - policy + constraints + governance + accountability
+#   - organizational outcomes
+#   - adaptation
+#   - escalation
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+enterprise: OTCHERE Inc
+release_target: v1.9.1
+governing_artefacts:
+  adr: ADR-ES-022
+  cr: CR-ES-022
+
+organizations:
+  - id: ES:EXAMPLE:otchere:organization
+    canonical_name: OTCHERE Inc Operational Organization
+    concept: ES:CONCEPT:organization
+    description: |
+      An OTCHERE Inc operational organization that pursues its
+      organizational intent through a coordinated boundary of
+      actors (human + non-human), roles, responsibilities,
+      authority, resources, and activities within defined
+      policy, constraints, governance, and accountability. Per
+      ADR-ES-022 section 10 + CR-ES-022 section 13.
+
+    properties:
+      organizational_intent: deliver enterprise objectives through coordinated actors
+      actor_scope: human + non-human actors
+      role_scope: operational + strategic + tactical roles
+      responsibility_scope: defined responsibilities per role
+      authority_context: defined organizational authority
+      resource_scope: financial + human + technical resources
+      activity_scope: enterprise operational activities
+      policy_context: regulatory + contractual policy
+      constraint_context: regulatory + financial + contractual
+      governance_context: organizational governance
+      accountability_context: organizational accountability
+      organizational_outcome_scope: enterprise outcomes
+      escalation_boundary: authority exceeded, escalation required
+
+    constituents:
+      - actor: human actors
+      - actor: non-human actors (Agents)
+      - role: operational roles
+      - role: strategic roles
+      - responsibility: defined responsibilities
+      - authority: delegated authority
+      - resource: marshaled resources
+      - activity: undertaken activities
+
+    flow: |
+      Organizational Intent
+          |
+          v
+      Allocate Roles + Responsibilities
+          |
+          v
+      Delegate Authority
+          |
+          v
+      Coordinate Actors (human + non-human)
+          |
+          v
+      Undertake Activities
+          |
+          v
+      Operate within Authority + Policy + Governance
+          |
+          v
+      Produce Organizational Outcomes
+          |
+          v
+      Adapt / Escalate
+
+    boundaries:
+      - id: ORG-EX-BND-001
+        description: Organization is NOT Enterprise (per ADR-ES-022 section 5 + ORG-NEG-001 + ORG-NEG-008)
+      - id: ORG-EX-BND-002
+        description: Organization is NOT Process (per ADR-ES-022 section 7 + ORG-NEG-002 + ORG-NEG-009)
+      - id: ORG-EX-BND-003
+        description: Organization is NOT Activity (per ORG-NEG-003 + ORG-NEG-010)
+      - id: ORG-EX-BND-004
+        description: Organization is NOT Capability (per ADR-ES-022 section 9 + ORG-NEG-004 + ORG-NEG-011)
+      - id: ORG-EX-BND-005
+        description: Organization is NOT Value Stream (per ADR-ES-022 section 8 + ORG-NEG-005 + ORG-NEG-012)
+      - id: ORG-EX-BND-006
+        description: Organization is NOT Operations (per ORG-NEG-006 + ORG-NEG-013)
+      - id: ORG-EX-BND-007
+        description: Organization is NOT an Agent (per ADR-ES-022 section 6 + ORG-NEG-007 + ORG-NEG-014)
+      - id: ORG-EX-BND-008
+        description: Team + Department + Business Unit are sub-boundaries, deferred per ADR-ES-022 section 12
+
+    provenance:
+      - source: CR-ES-022 section 13
+      - source: ADR-ES-022 section 10
+      - source: "enterprise: OTCHERE Inc"
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: "0 en-dash, 0 em-dash, 0 horizontal-ellipsis divider, 0 arrow glyph"
+  - vendor_specific_embargo: "0 references"
