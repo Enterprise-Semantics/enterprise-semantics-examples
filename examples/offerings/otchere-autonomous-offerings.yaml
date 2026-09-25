@@ -1,0 +1,193 @@
+# examples/offerings/otchere-autonomous-offerings.yaml ; OTCHERE Inc Autonomous Offerings
+#
+# Per CR-ES-019 section 17 ; ADR-ES-019 section 16 ; using OTCHERE Inc
+# as the reference enterprise for example instantiation.
+#
+# The example shall demonstrate autonomous materiality at the Offering
+# boundary, not merely inherit the classification from an Autonomous
+# Product or Autonomous Service.
+#
+# The example demonstrates:
+#   - offering objective
+#   - context assessment
+#   - independent configuration/composition
+#   - decision scope
+#   - authority
+#   - policies
+#   - constraints
+#   - autonomous fulfillment coordination
+#   - observation
+#   - adaptation
+#   - escalation
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+enterprise: OTCHERE Inc
+release_target: v1.8.0
+governing_artefacts:
+  adr: ADR-ES-019
+  cr: CR-ES-019
+
+offerings:
+  - id: ES:EXAMPLE:otchere:autonomous-integrated-offering
+    canonical_name: Autonomous Integrated Offering
+    concept: ES:CONCEPT:autonomous-offering
+    specializes: external:offering:Integrated-Offering
+    description: |
+      An OTCHERE Inc integrated enterprise offering where the offering
+      progresses through decisions, actions, coordination, and adaptation
+      toward an offering objective, without requiring human intervention
+      for every offering decision or action. The progression is bounded
+      by defined offering objectives, authority, policies, constraints,
+      and governance boundaries. Per ADR-ES-019 section 16 + CR-ES-019
+      section 17.
+
+    properties:
+      offering_objective: fulfill customer need through bounded autonomous offering realization
+      autonomy_scope: proposition determination, composition, coordination, fulfillment
+      offering_context: customer need, customer context, market context
+      decision_scope: proposition selection, configuration selection, composition selection
+      action_scope: permitted action repertoire
+      configuration_scope: offering configuration repertoire
+      composition_scope: product/service component composition repertoire
+      coordination_scope: offering component coordination
+      authority_context: defined offering authority
+      policy_context: customer satisfaction policy, regulatory policy
+      constraint_context: regulatory, contractual, financial
+      governance_context: offering governance boundaries
+      adaptation_scope: outcome-based adaptation
+      intervention_model: human-on-the-loop with exception intervention
+      escalation_boundary: authority exceeded, customer escalation, governance exceeded
+      observation_scope: customer outcome observation
+      realization_mode: mixed
+
+    material_autonomous_realization:
+      - offering objective pursuit
+      - contextual interpretation
+      - autonomous configuration
+      - autonomous composition
+      - coordinated autonomous fulfillment
+      - coordinated multi-service autonomous interaction
+      - contextual autonomous adaptation
+      - autonomous exception interpretation
+      - bounded autonomous decision-making
+      - autonomous escalation
+
+    flow: |
+      Customer Need
+          |
+          v
+      Autonomous Integrated Offering
+          |
+          v
+      Assess Customer Context
+          |
+          v
+      Determine Offering Objective
+          |
+          v
+      Evaluate Authority / Policy / Constraints
+          |
+          v
+      Select Product + Service Configuration
+          |
+          v
+      Coordinate Fulfillment
+          |
+          v
+      Observe Customer Outcome
+          |
+          v
+      Adapt / Escalate
+      <loop>
+
+    conventional_comparison:
+      description: |
+        Conventional Integrated Offering vs Autonomous Integrated
+        Offering per ADR-ES-019 section 16.
+
+      conventional:
+        flow: |
+          Customer Need
+              |
+              v
+          OTCHERE Integrated Offering
+              |
+              v
+          Select Product
+              |
+              v
+          Select Service
+              |
+              v
+          Fulfill
+
+      autonomous:
+        flow: |
+          Customer Need
+              |
+              v
+          Autonomous Integrated Offering
+              |
+              v
+          Assess Customer Context
+              |
+              v
+          Determine Offering Objective
+              |
+              v
+          Evaluate Authority / Policy / Constraints
+              |
+              v
+          Select Product + Service Configuration
+              |
+              v
+          Coordinate Fulfillment
+              |
+              v
+          Observe Customer Outcome
+              |
+              v
+          Adapt / Escalate
+
+      difference: |
+        The offering is autonomous because material offering
+        decisions and actions can progress without human
+        intervention for every decision, within defined
+        authority, policy, constraint, and governance
+        boundaries. The presence of an AI model, a chatbot,
+        automated ordering, or an Agent somewhere in
+        implementation alone would not establish this
+        classification. Per ADR-ES-019 section 16.
+
+    boundaries:
+      - id: AOFF-AUTO-EX-BND-001
+        description: Not an Agentic Offering (per ADR-ES-019 section 13 + AOFF-AUTO-NEG-001)
+      - id: AOFF-AUTO-EX-BND-002
+        description: Not an Autonomous Product (per ADR-ES-019 section 9 + AOFF-AUTO-NEG-002)
+      - id: AOFF-AUTO-EX-BND-003
+        description: Not an Autonomous Service (per ADR-ES-019 section 10 + AOFF-AUTO-NEG-003)
+      - id: AOFF-AUTO-EX-BND-004
+        description: AI not required (per ADR-ES-019 section 14 + AOFF-AUTO-NEG-006)
+      - id: AOFF-AUTO-EX-BND-005
+        description: Automation not sufficient (per ADR-ES-019 section 15 + AOFF-AUTO-NEG-008)
+      - id: AOFF-AUTO-EX-BND-006
+        description: Human participation remains valid (per ADR-ES-019 section 7 + AOFF-AUTO-CON-014)
+      - id: AOFF-AUTO-EX-BND-007
+        description: Foundational Offering dependency documented (per ADR-ES-019 section 2 + CR-ES-019 section 2). Parent Offering NOT yet canonical.
+
+    provenance:
+      - source: CR-ES-019 section 17
+      - source: ADR-ES-019 section 16
+      - source: "enterprise: OTCHERE Inc"
+      - source: USER-DIRECTIVE-1552900782440058902
+      - source: USER-DIRECTIVE-1552912455527571546
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: "0 en-dash, 0 em-dash, 0 horizontal-ellipsis divider, 0 arrow glyph"
+  - vendor_specific_embargo: "0 references"
+  - ai_independence: enforced per ADR-ES-019 section 14 + CR-ES-019 section 14
+  - automation_independence: enforced per ADR-ES-019 section 15 + CR-ES-019 section 14
+  - foundational_dependency_gate: documented per ADR-ES-019 section 2
