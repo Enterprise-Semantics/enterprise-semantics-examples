@@ -1,0 +1,64 @@
+# examples/systems/otchere-autonomous-system.yaml ; OTCHERE Inc Autonomous System example
+#
+# Per CR-ES-028. Illustrative example of an Autonomous System
+# specialization in an enterprise context.
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+id: ES:EXAMPLE:otchere-autonomous-system
+canonical_name: OTCHERE Inc ; Autonomous System
+status: established
+version: 2.4.0
+date: 2026-09-26
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+governance: enterprise-semantics
+
+applies_to_concept: ES:CONCEPT:autonomous-system
+applies_to_profile: autonomous-system
+
+organization:
+  name: OTCHERE Inc
+  context: enterprise
+  autonomous_system_role: boundary-spanning-integration
+
+system_description:
+  system_objective: |
+    Coordinate cross-system responses to operational events
+    without per-decision human intervention, within defined
+    authority, policy, and escalation boundaries.
+  system_context: enterprise boundary
+  decision_scope: cross-system coordination decisions
+  action_scope: bounded operational actions
+  coordination_scope: inter-system handoffs
+  adaptation_scope: policy-compliant response patterns
+
+authority_context:
+  - delegated decision authority for cross-system responses
+  - exception-based escalation to human operators
+  - policy-driven intervention thresholds
+
+policy_context:
+  - response time SLA policies
+  - escalation policies
+  - audit trail policies
+
+materiality_evidence:
+  - independent_decision_progression: material
+  - independent_action_progression: material
+  - independent_coordination: material
+  - adaptive_behavior: material
+
+boundary_assertions:
+  - not_ai_only: true
+  - not_automation_only: true
+  - not_scheduled_execution_only: true
+  - not_predefined_rules_only: true
+  - independent_progression_required: true
+
+provenance:
+  source:
+    - ES-ADR-028
+  implementation:
+    - CR-ES-028
+
+release_target: v2.4.0
