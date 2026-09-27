@@ -10,10 +10,10 @@ This repository holds **worked examples** that double as **provenance evidence**
 
 ## Planned examples
 
-- `canonical-enterprise-model/` ;;; a minimal but complete enterprise model exercising Capability, Value Stream, Process, Workflow, AI Agent, Agentic Workflow, Closed Loop.
-- `agentic-value-stream-worked/` ;;; the Agentic Value Stream concept from FND-ES-000 section 15 worked end-to-end.
-- `agentic-vs-autonomous/` ;;; a comparative scenario that distinguishes Agentic from Autonomous, per FND-ES-001 section 9.
-- `closed-loop-feedback/` ;;; Closed Loop, Feedback, FeedForward, Signal, Observation, Decision, Control, Adaptation exercised in a small example.
+- `canonical-enterprise-model/`, a minimal but complete enterprise model exercising Capability, Value Stream, Process, Workflow, AI Agent, Agentic Workflow, Closed Loop.
+- `agentic-value-stream-worked/`, the Agentic Value Stream concept from FND-ES-000 section 15 worked end-to-end.
+- `agentic-vs-autonomous/`, a comparative scenario that distinguishes Agentic from Autonomous, per FND-ES-001 section 9.
+- `closed-loop-feedback/`, Closed Loop, Feedback, FeedForward, Signal, Observation, Decision, Control, Adaptation exercised in a small example.
 
 ## Relationship to other repositories
 

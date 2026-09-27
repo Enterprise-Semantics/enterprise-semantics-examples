@@ -1,7 +1,7 @@
 # Worked Example: Value Stream vs Process Boundary
 #
 # Per CR-ES-003 §32 + ADR-ES-003 §8 + §16.
-# Demonstrates the critical architectural distinction ;;; same value
+# Demonstrates the critical architectural distinction, same value
 # journey can be realized through different execution models without
 # changing the Value Stream identity.
 # Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
@@ -34,7 +34,7 @@ example_value_stream:
 execution_models:
   human_led:
     description: |
-      Traditional execution model ;;; customer orders are captured by
+      Traditional execution model, customer orders are captured by
       humans, fulfilment is coordinated by humans, payment is processed
       by humans.
     realises_via:
@@ -44,7 +44,7 @@ execution_models:
 
   automated:
     description: |
-      Modern execution model ;;; digital channels handle capture and
+      Modern execution model, digital channels handle capture and
       confirmation, automated systems handle fulfilment and payment.
     realises_via:
       - Digital Ordering Service
@@ -53,7 +53,7 @@ execution_models:
 
   agentic:
     description: |
-      Future execution model ;;; AI Agents handle customer interaction,
+      Future execution model, AI Agents handle customer interaction,
       fulfilment coordination, and payment processing under bounded
       autonomy with human governance.
     realises_via:
