@@ -1,0 +1,110 @@
+# examples/culture/otchere-agentic-culture.yaml ; OTCHERE Inc Agentic Culture
+#
+# Per CR-ES-023 section 12 + ADR-ES-023 section 14 ; using OTCHERE
+# Inc as the reference enterprise for example instantiation of the
+# Agentic Culture specialization.
+#
+# The example demonstrates:
+#   - delegation norms
+#   - authority norms
+#   - human / agent collaboration norms
+#   - decision & coordination practices
+#   - adaptive behavior
+#   - accountability / escalation
+#   - organizational learning
+#
+# The example remains illustrative rather than prescriptive.
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+enterprise: OTCHERE Inc
+release_target: v2.1.0
+governing_artefacts:
+  adr: ADR-ES-023
+  cr: CR-ES-023
+
+cultures:
+  - id: ES:EXAMPLE:otchere:agentic-culture
+    canonical_name: OTCHERE Inc Agentic Culture
+    concept: ES:CONCEPT:agentic-culture
+    description: |
+      The OTCHERE Inc Agentic Culture ; the cultural pattern in
+      which organizational norms, values, practices, and
+      expectations materially support the interpretation of
+      delegated intent, distribution of decision authority,
+      human-agent collaboration, adaptive action, and
+      accountable coordination involving agentic behavior.
+      Per ADR-ES-023 section 14 + CR-ES-023 section 12.
+
+    properties:
+      agentic_scope: enterprise-wide agentic culture
+      cultural_context: enterprise operational context
+      delegation_norms: explicit distinction of delegated vs retained decision rights
+      authority_norms: agents operate within defined authority
+      accountability_norms: accountability for agent-mediated decisions
+      collaboration_norms: people + agents collaborate within defined authority
+      decision_norms: context-aware organizational decision practices
+      adaptation_norms: adaptive response to changing context
+      trust_norms: trust calibrated to demonstrated scope + evidence
+      intervention_norms: exception-based human intervention
+      escalation_norms: escalation when authority exceeded
+      learning_norms: agentic outcomes feed organizational learning
+      governance_context: organizational governance boundaries
+      realization_mode: cultural pattern through interaction
+
+    flow: |
+      Organizational Values / Norms
+          |
+          v
+      Delegation Expectations
+          |
+          v
+      Authority & Accountability Norms
+          |
+          v
+      Human / Agent Interaction Norms
+          |
+          v
+      Decision & Coordination Practices
+          |
+          v
+      Adaptive Behavior
+          |
+          v
+      Learning / Reinforcement
+          |
+          v
+      Evolving Organizational Culture
+
+    boundaries:
+      - id: ACULT-EX-BND-001
+        description: Agentic Culture is NOT AI Culture per ADR-ES-023 section 4 + section 12
+      - id: ACULT-EX-BND-002
+        description: Agentic Culture is NOT Automated Culture per ADR-ES-023 section 4 + section 12
+      - id: ACULT-EX-BND-003
+        description: Agentic Culture is NOT Agentic Organization per ADR-ES-023 section 8
+      - id: ACULT-EX-BND-004
+        description: Agentic Culture is NOT Agentic Enterprise per ADR-ES-023 section 9
+      - id: ACULT-EX-BND-005
+        description: Agentic Culture is NOT Autonomous Culture per ADR-ES-023 section 10 + ADR-ES-022 section 5
+      - id: ACULT-EX-BND-006
+        description: AI NOT required per ADR-ES-023 section 12
+      - id: ACULT-EX-BND-007
+        description: Automation NOT sufficient per ADR-ES-023 section 12
+      - id: ACULT-EX-BND-008
+        description: Human participation remains valid per ADR-ES-023 section 11
+      - id: ACULT-EX-BND-009
+        description: Bounded by Authority + Policy + Constraint + Governance + Accountability + Escalation per ADR-ES-023 section 13
+      - id: ACULT-EX-BND-010
+        description: Agentic Culture is orthogonal to Autonomous Culture per ADR-ES-023 section 10 + ADR-ES-022 section 5
+
+    provenance:
+      - source: CR-ES-023 section 12
+      - source: ADR-ES-023 section 14
+      - source: "enterprise: OTCHERE Inc"
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: "0 en-dash, 0 em-dash, 0 horizontal-ellipsis divider, 0 arrow glyph"
+  - vendor_specific_embargo: "0 references"
