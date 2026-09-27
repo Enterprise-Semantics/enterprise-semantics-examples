@@ -1,0 +1,119 @@
+# examples/systems/otchere-system.yaml ; OTCHERE Inc System
+#
+# Per CR-ES-027 section 7 + ADR-ES-027 section 7 ; using OTCHERE
+# Inc as the reference enterprise for example instantiation of
+# the System foundational concept.
+#
+# The example demonstrates:
+#   - element organization
+#   - behavioral coherence
+#   - system boundary
+#   - intended functions + outcomes
+#   - contextual operation
+#
+# The example demonstrates diverse System types ; not limited
+# to IT system.
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+enterprise: OTCHERE Inc
+release_target: v2.5.0
+governing_artefacts:
+  adr: ADR-ES-027
+  cr: CR-ES-027
+
+systems:
+  - id: ES:EXAMPLE:otchere:order-orchestration-system
+    canonical_name: OTCHERE Inc Order Orchestration System
+    concept: ES:CONCEPT:system
+    description: |
+      The OTCHERE Inc Order Orchestration System ; an organized
+      whole of interacting elements (services + data + workflows)
+      enabling order fulfillment realization within a defined
+      context and boundary. Per ADR-ES-027 section 7 + CR-ES-027
+      section 7.
+
+    properties:
+      element_organization: interacting services, data, workflows
+      behavioral_coherence: orchestrated order fulfillment behavior
+      system_boundary: enterprise order scope
+      intended_functions: order intake, validation, fulfillment, delivery
+      intended_purposes: customer order realization
+      intended_outcomes: fulfilled orders + customer satisfaction
+      contextual_operation: enterprise operational context
+      realization_mode: orchestrated behavior
+
+  - id: ES:EXAMPLE:otchere:hr-management-system
+    canonical_name: OTCHERE Inc HR Management System
+    concept: ES:CONCEPT:system
+    description: |
+      The OTCHERE Inc HR Management System ; an organized whole
+      of interacting elements (modules + integrations + policies)
+      enabling HR process realization. Per ADR-ES-027 section 7
+      + CR-ES-027 section 7.
+
+    properties:
+      element_organization: HR modules, integrations, policies
+      behavioral_coherence: orchestrated HR behavior
+      system_boundary: enterprise HR scope
+      intended_functions: HR process execution
+      intended_purposes: HR outcome realization
+      intended_outcomes: HR outcomes + compliance
+      contextual_operation: enterprise operational context
+      realization_mode: integrated HR behavior
+
+  - id: ES:EXAMPLE:otchere:financial-accounting-system
+    canonical_name: OTCHERE Inc Financial Accounting System
+    concept: ES:CONCEPT:system
+    description: |
+      The OTCHERE Inc Financial Accounting System ; an organized
+      whole of interacting elements (ledgers + reports + controls)
+      enabling financial realization. Per ADR-ES-027 section 7 +
+      CR-ES-027 section 7.
+
+    properties:
+      element_organization: ledgers, reports, controls
+      behavioral_coherence: orchestrated financial behavior
+      system_boundary: enterprise financial scope
+      intended_functions: financial recording + reporting + control
+      intended_purposes: financial realization
+      intended_outcomes: financial statements + compliance
+      contextual_operation: enterprise operational context
+      realization_mode: integrated financial behavior
+
+    boundaries:
+      - id: SYS-EX-BND-001
+        description: System is NOT Entity per Recon-ES-004 + ADR-ES-027 section 6
+      - id: SYS-EX-BND-002
+        description: System is NOT Organization per Recon-ES-004 + ADR-ES-027 section 6
+      - id: SYS-EX-BND-003
+        description: System is NOT Service per Recon-ES-004 + ADR-ES-027 section 6
+      - id: SYS-EX-BND-004
+        description: System is NOT Resource per Recon-ES-004 + ADR-ES-027 section 6
+      - id: SYS-EX-BND-005
+        description: System is NOT Process per Recon-ES-004 + ADR-ES-027 section 6
+      - id: SYS-EX-BND-006
+        description: System is NOT Workflow per Recon-ES-004 + ADR-ES-027 section 6
+      - id: SYS-EX-BND-007
+        description: System is NOT Capability per Recon-ES-004 + ADR-ES-027 section 6
+      - id: SYS-EX-BND-008
+        description: System is NOT IT system specifically per ADR-ES-027 section 2 + Recon-ES-004
+      - id: SYS-EX-BND-009
+        description: AI NOT required per ADR-ES-027 section 6
+      - id: SYS-EX-BND-010
+        description: Technology NOT required per ADR-ES-027 section 6
+      - id: SYS-EX-BND-011
+        description: Agent presence alone NOT sufficient per ADR-ES-027 section 4
+      - id: SYS-EX-BND-012
+        description: Autonomous System remains deferred per ADR-ES-022 section 13 + ADR-ES-027 section 8
+
+    provenance:
+      - source: CR-ES-027 section 7
+      - source: ADR-ES-027 section 7
+      - source: "enterprise: OTCHERE Inc"
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: "0 en-dash, 0 em-dash, 0 horizontal-ellipsis divider, 0 arrow glyph"
+  - vendor_specific_embargo: "0 references"
