@@ -1,0 +1,38 @@
+id: ES:EXAMPLE:otchere-agentic-ecosystem
+canonical_name: OTCHERE Inc ; Agentic Ecosystem
+status: established
+version: 2.5.0
+date: 2026-09-26
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+governance: enterprise-semantics
+
+applies_to_concept: ES:CONCEPT:agentic-ecosystem
+applies_to_profile: agentic-ecosystem
+
+ecosystem_description:
+  ecosystem_intent: Cross-organizational agentic coordination of partner services
+  ecosystem_scope: OTCHERE partner network (5 organizations)
+  agentic_scope: agents coordinating service delivery across organizational boundaries
+  delegated_intent: per-organization delegated service-level intents
+  authority_context: bilateral authority delegation contracts
+  interaction_scope: service + value coordination events
+  coordination_scope: multi-party fulfillment
+  adaptation_scope: demand-driven partner rebalancing
+  intervention_model: exception-based human escalation
+  escalation_boundary: policy breach or value threshold exceeded
+  outcome_scope: ecosystem-level service outcomes
+
+materiality_evidence:
+  - agentic_coordination_across_organizational_boundaries: true
+  - delegated_decisions_affecting_multiple_participants: true
+  - adaptive_interaction_among_participating_entities: true
+
+boundary_assertions:
+  - not_single_system_behavior: true
+  - not_merely_containing_agents: true
+
+provenance:
+  source: [ES-ADR-029, ADR-WSF-28]
+  implementation: [CR-ES-029]
+
+release_target: v2.5.0
