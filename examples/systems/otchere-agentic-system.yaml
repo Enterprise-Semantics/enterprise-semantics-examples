@@ -1,0 +1,114 @@
+# examples/systems/otchere-agentic-system.yaml ; OTCHERE Inc Agentic System
+#
+# Per CR-ES-025 section 9 + ADR-ES-025 section 12 ; using OTCHERE
+# Inc as the reference enterprise for example instantiation of the
+# Agentic System specialization.
+#
+# The example demonstrates:
+#   - delegated fulfillment intent interpretation
+#   - customer/inventory/delivery/operational context assessment
+#   - available execution option evaluation
+#   - action selection or coordination within authority
+#   - dynamic response to operational changes
+#   - fulfillment outcome observation
+#   - adaptation or escalation within policy
+#
+# The example demonstrates material agentic behavior with
+# explicit authority + policy boundaries.
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+enterprise: OTCHERE Inc
+release_target: v2.3.0
+governing_artefacts:
+  adr: ADR-ES-025
+  cr: CR-ES-025
+
+systems:
+  - id: ES:EXAMPLE:otchere:order-orchestration-agentic-system
+    canonical_name: OTCHERE Inc Order Orchestration Agentic System
+    concept: ES:CONCEPT:agentic-system
+    description: |
+      The OTCHERE Inc Order Orchestration Agentic System ; an
+      Agentic System in which material system behavior
+      incorporates the interpretation of delegated fulfillment
+      intent, contextual decision selection, action coordination,
+      adaptation, and execution toward intended fulfillment
+      outcomes within defined authority and policy boundaries.
+      Per ADR-ES-025 section 12 + CR-ES-025 section 9.
+
+    properties:
+      system_intent: delegated fulfillment intent
+      agentic_scope: material agentic behavior in order fulfillment
+      system_context: customer + inventory + delivery + operational context
+      delegated_intent: customer order intent
+      authority_context: defined authority boundaries
+      policy_context: fulfillment policies
+      constraint_context: regulatory + financial + contractual
+      interpretation_scope: fulfillment intent interpretation
+      decision_scope: fulfillment decision selection
+      action_selection_scope: fulfillment action selection
+      coordination_scope: fulfillment action coordination
+      adaptation_scope: operational change adaptation
+      intervention_model: human-on-the-loop with exception escalation
+      escalation_boundary: authority exceeded, escalate
+      observation_scope: fulfillment outcome observation
+      realization_mode: agentic orchestration within policy
+
+    flow: |
+      System Intent (Delegated Fulfillment Intent)
+          |
+          v
+      System Context (Customer + Inventory + Delivery + Operational)
+          |
+          v
+      Interpret / Assess
+          |
+          v
+      Select Decision / Action
+          |
+          v
+      Coordinate / Execute
+          |
+          v
+      Observe Outcome
+          |
+          v
+      Adapt / Escalate
+
+    boundaries:
+      - id: ASYS-EX-BND-001
+        description: Agentic System is NOT Agent per ADR-ES-025 section 5
+      - id: ASYS-EX-BND-002
+        description: Agentic System is NOT Agentic Workflow per ADR-ES-025 section 6
+      - id: ASYS-EX-BND-003
+        description: Agentic System is NOT Agentic Operations per ADR-ES-025 section 7
+      - id: ASYS-EX-BND-004
+        description: Agentic System is NOT Agentic Service per ADR-ES-025 section 11
+      - id: ASYS-EX-BND-005
+        description: Agentic System is NOT Agentic Organization per ADR-ES-025 section 11
+      - id: ASYS-EX-BND-006
+        description: Agentic System is NOT Agentic Enterprise per ADR-ES-025 section 11
+      - id: ASYS-EX-BND-007
+        description: Autonomous System remains deferred per ADR-ES-022 section 13 + ADR-ES-025 section 13
+      - id: ASYS-EX-BND-008
+        description: AI NOT required per ADR-ES-025 section 3
+      - id: ASYS-EX-BND-009
+        description: Automation NOT sufficient per ADR-ES-025 section 3
+      - id: ASYS-EX-BND-010
+        description: Agent presence alone NOT sufficient per ADR-ES-025 section 3
+      - id: ASYS-EX-BND-011
+        description: Human participation remains valid per ADR-ES-025 section 9
+      - id: ASYS-EX-BND-012
+        description: Bounded by Authority + Policy + Constraint + Context + Governance + Escalation per ADR-ES-025 section 4
+
+    provenance:
+      - source: CR-ES-025 section 9
+      - source: ADR-ES-025 section 12
+      - source: "enterprise: OTCHERE Inc"
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: "0 en-dash, 0 em-dash, 0 horizontal-ellipsis divider, 0 arrow glyph"
+  - vendor_specific_embargo: "0 references"
