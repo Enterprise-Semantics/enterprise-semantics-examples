@@ -1,0 +1,81 @@
+# examples/culture/otchere-culture.yaml ; OTCHERE Inc Culture
+#
+# Per CR-ES-026 section 7 + ADR-ES-026 section 7 ; using OTCHERE
+# Inc as the reference enterprise for example instantiation of the
+# Culture foundational concept.
+#
+# The example demonstrates:
+#   - shared values
+#   - shared norms
+#   - shared practices
+#   - behavioral conventions
+#   - interpretive lens
+#   - coordination of meaning
+#
+# The example explicitly demonstrates shared organizational meaning
+# rather than organizational structure.
+#
+# Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+enterprise: OTCHERE Inc
+release_target: v2.4.0
+governing_artefacts:
+  adr: ADR-ES-026
+  cr: CR-ES-026
+
+cultures:
+  - id: ES:EXAMPLE:otchere:culture
+    canonical_name: OTCHERE Inc Shared Organizational Culture
+    concept: ES:CONCEPT:culture
+    description: |
+      The OTCHERE Inc shared organizational Culture ; the pattern
+      of values, norms, beliefs, practices, expectations, and
+      behavioral conventions through which OTCHERE Inc shapes
+      how its members and participants understand, coordinate,
+      and conduct organizational activity. Per ADR-ES-026 section
+      7 + CR-ES-026 section 7.
+
+    properties:
+      shared_values: accountability, adaptation, collaboration, transparency
+      shared_norms: how members interpret organizational decisions
+      shared_beliefs: how members understand organizational purpose
+      shared_practices: how members coordinate organizational work
+      shared_expectations: how members anticipate organizational behavior
+      behavioral_conventions: how members conduct themselves across roles
+      interpretive_lens: organizational meaning through which situations are understood
+      coordination_of_meaning: shared understanding enabling coordinated action
+      organizational_scope: enterprise-wide (subject to sub-cultures)
+      realization_mode: shared meaning through interaction
+
+    boundaries:
+      - id: CULT-EX-BND-001
+        description: Culture is NOT Organization per Recon-ES-003 + ADR-ES-026 section 6
+      - id: CULT-EX-BND-002
+        description: Culture is NOT Governance per Recon-ES-003 + ADR-ES-026 section 6
+      - id: CULT-EX-BND-003
+        description: Culture is NOT Policy per Recon-ES-003 + ADR-ES-026 section 6
+      - id: CULT-EX-BND-004
+        description: Culture is NOT Process per Recon-ES-003 + ADR-ES-026 section 6
+      - id: CULT-EX-BND-005
+        description: Culture is NOT Capability per Recon-ES-003 + ADR-ES-026 section 6
+      - id: CULT-EX-BND-006
+        description: Culture is NOT IT system per ADR-ES-026 section 6
+      - id: CULT-EX-BND-007
+        description: Culture is NOT Agentic Culture per ADR-ES-026 section 6
+      - id: CULT-EX-BND-008
+        description: AI NOT required per ADR-ES-026 section 3
+      - id: CULT-EX-BND-009
+        description: Technology NOT required per ADR-ES-026 section 3
+      - id: CULT-EX-BND-010
+        description: Agent presence alone NOT sufficient per ADR-ES-026 section 4
+
+    provenance:
+      - source: CR-ES-026 section 7
+      - source: ADR-ES-026 section 7
+      - source: "enterprise: OTCHERE Inc"
+
+cardinal_rules:
+  - author: Emmanuel A. Otchere
+  - d004_dash_rule: "0 en-dash, 0 em-dash, 0 horizontal-ellipsis divider, 0 arrow glyph"
+  - vendor_specific_embargo: "0 references"
