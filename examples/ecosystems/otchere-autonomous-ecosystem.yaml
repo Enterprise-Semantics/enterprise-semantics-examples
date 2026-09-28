@@ -1,0 +1,22 @@
+id: ES:EXAMPLE:otchere-autonomous-ecosystem
+canonical_name: OTCHERE Inc ; Autonomous Ecosystem
+status: established
+version: 2.6.0
+date: 2026-09-27
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+governance: enterprise-semantics
+applies_to_concept: ES:CONCEPT:autonomous-ecosystem
+applies_to_profile: autonomous-ecosystem
+ecosystem_description:
+  ecosystem_intent: autonomous partner-network rebalancing under policy
+  autonomy_scope: coordination + adaptation decisions without per-decision approval
+  policy_boundaries: bilateral contracts + value thresholds
+  escalation_paths: policy breach -> human governance board
+  outcome_scope: ecosystem-level service outcomes
+materiality_evidence:
+  - autonomous_coordination_decisions_affecting_multiple_participants: true
+  - policy_boundary_adaptation_without_per_decision_human_approval: true
+provenance:
+  decision: [ES-ADR-033]
+  implementation: [CR-ES-033]
+release_target: v2.6.0
