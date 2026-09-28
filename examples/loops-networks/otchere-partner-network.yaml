@@ -1,0 +1,12 @@
+id: ES:EXAMPLE:otchere-partner-network
+canonical_name: OTCHERE Inc ;;; Partner Network
+status: Established
+version: 2.031
+date: 2026-09-28
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+governance: enterprise-semantics
+applies_to_concept: ES:CONCEPT:agentic-network
+applies_to_profile: agentic-network
+provenance:
+  decision: [ES-ADR-031]
+  implementation: [CR-ES-031]

@@ -1,0 +1,12 @@
+id: ES:EXAMPLE:otchere-resilient-supply-network
+canonical_name: OTCHERE Inc ;;; Resilient Supply Network
+status: Established
+version: 2.032
+date: 2026-09-28
+author: Emmanuel A. Otchere (cardinal author rule, 2026-09-24)
+governance: enterprise-semantics
+applies_to_concept: ES:CONCEPT:autonomous-network
+applies_to_profile: autonomous-network
+provenance:
+  decision: [ES-ADR-032]
+  implementation: [CR-ES-032]
