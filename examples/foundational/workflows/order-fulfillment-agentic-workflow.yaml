@@ -19,7 +19,7 @@ provenance:
       material-participation criterion is satisfied.
   - source: ADR-ES-006 §21
     note: |
-      Foundational example ;;; OTCHERE Inc order fulfillment ;;; the
+      Foundational example, OTCHERE Inc order fulfillment, and the
       Process remains Fulfill Customer Order ;; the Workflow
       introduces dynamic interpretation and bounded decision-making
       into execution.
@@ -27,11 +27,11 @@ provenance:
 # The Process (same as the Workflow-only example)
 
 process:
-  id: ES:CONCEPT:process ;;; external concept reference
+  id: ES:CONCEPT:process, external concept reference
   canonical_name: Fulfill Customer Order
   definition: |
     The Process of fulfilling a customer order. The Process remains
-    the same ;;; the Agentic Workflow introduces dynamic
+    the same, the Agentic Workflow introduces dynamic
     interpretation and bounded decision-making into execution.
 
 # The Agentic Workflow
@@ -40,8 +40,8 @@ agentic_workflow:
   id: ES:CONCEPT:agentic-workflow
   description: |
     Per CR-ES-006 §27 + ADR-ES-006 §21 ;; the Agentic Workflow
-    introduces dynamic interpretation ;; bounded authority ;;;
-    coordination ;;; and runtime adaptation. The Process remains
+    introduces dynamic interpretation ;; bounded authority
+    coordination, and runtime adaptation. The Process remains
     Fulfill Customer Order.
 
   steps:
@@ -93,7 +93,7 @@ agentic_workflow:
 
 # Workflow intent
 
-workflow_intent: Fulfill customer order successfully through agentic interpretation ;;; action selection ;; coordination ;;; and adaptation within bounded authority.
+workflow_intent: Fulfill customer order successfully through agentic interpretation, action selection ;; coordination, and and adaptation within bounded authority.
 
 # Authority
 
@@ -129,7 +129,7 @@ boundaries_demonstrated:
   - agentic_not_automation ;; per ADR-ES-006 §13
   - agentic_not_autonomous ;; human escalation preserved ;; per ADR-ES-006 §17
   - not_a_process ;; the Agentic Workflow realises the Process ;; but is not the Process itself ;; per ADR-ES-006 §6 + §24.4
-  - not_a_value_stream ;; the Agentic Workflow is the execution layer ;;; not the value-realisation layer ;; per ADR-ES-006 §15 + §24.6
+  - not_a_value_stream ;; the Agentic Workflow is the execution layer, not the value-realisation layer ;; per ADR-ES-006 §15 + §24.6
   - not_an_agent ;; the Agentic Workflow coordinates Agents ;; but is itself the coordination structure ;; per AWF-CON-013
   - technology_neutral ;; no AI vendor ;; no specific framework ;; no LLM ;; per ADR-ES-006 §14
 

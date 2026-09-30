@@ -4,7 +4,7 @@
 # Demonstrates the canonical Order Fulfillment process with two
 # workflow variants: a conventional Workflow and an Agentic Workflow.
 # The architectural distinction: the Process remains the same ;; the
-# Workflow becomes capable of agentic interpretation ;;; action/path
+# Workflow becomes capable of agentic interpretation, action/path
 # selection ;; and runtime adaptation.
 #
 # Authored by: Emmanuel A. Otchere (cardinal author rule, 2026-09-23)
@@ -25,7 +25,7 @@ provenance:
 # The Process
 
 process:
-  id: ES:CONCEPT:process ;;; external concept reference
+  id: ES:CONCEPT:process, external concept reference
   canonical_name: Fulfill Customer Order
   definition: |
     The Process of fulfilling a customer order ;; from order receipt
@@ -78,8 +78,8 @@ cardinal_rules:
 cardinal_relationships:
   - external:concept:process -> ES:CONCEPT:workflow ;; realized-through
   - external:concept:process -> ES:CONCEPT:agentic-workflow ;; realized-through (alternate realisation)
-  - Process != Agentic Workflow ;;; per AVS-INV-AWF-001
-  - Process != Value Stream ;;; per AVS-INV-AWF-003
+  - Process != Agentic Workflow, per AVS-INV-AWF-001
+  - Process != Value Stream, per AVS-INV-AWF-003
 
 # Governance
 
